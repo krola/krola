@@ -1,0 +1,8 @@
+services:
+  identityserver:
+    image: identityserver
+    ports:
+      - 5000:5000
+    build:
+      context: ../../Services/Authorization.IdentityServer
+      dockerfile: Dockerfile
