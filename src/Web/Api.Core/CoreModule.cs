@@ -1,6 +1,4 @@
 ﻿using Autofac;
-using Krola.Web.Api.Core.Interfaces.UseCases;
-using Krola.Web.Api.Core.UseCases;
 
 namespace Krola.Web.Api.Core
 {
@@ -8,9 +6,6 @@ namespace Krola.Web.Api.Core
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<RegisterUserUseCase>().As<IRegisterUserUseCase>().InstancePerLifetimeScope();
-            builder.RegisterType<LoginUseCase>().As<ILoginUseCase>().InstancePerLifetimeScope();
-            builder.RegisterType<ExchangeRefreshTokenUseCase>().As<IExchangeRefreshTokenUseCase>().InstancePerLifetimeScope();
         }
     }
 }

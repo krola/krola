@@ -1,10 +1,14 @@
-﻿using IdentityServer4.Models;
-using IdentityServer4.Test;
+﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
+
+
+using IdentityServer4;
+using IdentityServer4.Models;
 using System.Collections.Generic;
 
-namespace Krola.Authorization.IdentityServer
+namespace IdentityServerAspNetIdentity
 {
-    public class Config
+    public static class Config
     {
         public static IEnumerable<IdentityResource> GetIdentityResources()
         {
@@ -12,7 +16,6 @@ namespace Krola.Authorization.IdentityServer
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
-                new IdentityResources.Email(),
             };
         }
 
@@ -20,15 +23,7 @@ namespace Krola.Authorization.IdentityServer
         {
             return new List<ApiResource>
             {
-                new ApiResource("time_tracking_api", "Time Tracking API")
-                {
-                    ApiSecrets = { new Secret("time_tracking".Sha256()) },
-                    Scopes = new List<Scope>
-                    {
-                        new Scope { Name = "time_tracking_client", DisplayName = "Time Tracking Client"},
-                        new Scope { Name = "time_tracking_mobile", DisplayName = "Time Tracking Mobile"},
-                    }
-                }
+                new ApiResource("api1", "My API")
             };
         }
 
@@ -36,37 +31,79 @@ namespace Krola.Authorization.IdentityServer
         {
             return new List<Client>
             {
-                // native clients
                 new Client
                 {
-                    ClientId = "time.tracking",
-                    ClientName = "TimeTracking",
-                    
-                    RequireClientSecret = true,
-                    ClientSecrets = new List<Secret>
+                    ClientId = "client",
+
+                    // no interactive user, use the clientid/secret for authentication
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+
+                    // secret for authentication
+                    ClientSecrets =
                     {
-                        new Secret("time_tracking")
+                        new Secret("secret".Sha256())
                     },
 
+                    // scopes that client has access to
+                    AllowedScopes = { "api1" }
+                },
+                // resource owner password grant client
+                new Client
+                {
+                    ClientId = "ro.client",
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-                    AllowedScopes = { "time_tracking_client", "time_tracking_mobile" },
 
-                    AllowOfflineAccess = true,
-                    RefreshTokenUsage = TokenUsage.ReUse
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    AllowedScopes = { "api1" }
+                },
+                // OpenID Connect hybrid flow client (MVC)
+                new Client
+                {
+                    ClientId = "mvc",
+                    ClientName = "MVC Client",
+                    AllowedGrantTypes = GrantTypes.Hybrid,
+
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+
+                    RedirectUris           = { "http://localhost:5002/signin-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1"
+                    },
+
+                    AllowOfflineAccess = true
+                },
+                // JavaScript Client
+                new Client
+                {
+                    ClientId = "js",
+                    ClientName = "JavaScript Client",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
+
+                    RedirectUris =           { "http://localhost:5003/callback.html" },
+                    PostLogoutRedirectUris = { "http://localhost:5003/index.html" },
+                    AllowedCorsOrigins =     { "http://localhost:5003" },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1"
+                    }
                 }
             };
         }
-
-        public static IEnumerable<TestUser> GetUsers()
-        {
-            return new List<TestUser> { new TestUser
-            {
-                Username = "TimeTrackingAdmin",
-                Password = "admin",
-                SubjectId = "1",
-                IsActive = true
-            }};
-        }
     }
-
 }

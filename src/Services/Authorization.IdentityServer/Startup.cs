@@ -1,51 +1,112 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
+
+
+using IdentityServerAspNetIdentity.Data;
+using IdentityServerAspNetIdentity.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
+using System;
 using System.Reflection;
-using Krola.Authorization.IdentityServer.Data;
 
-namespace Krola.Authorization.IdentityServer
+namespace IdentityServerAspNetIdentity
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public IConfiguration Configuration { get; }
+        public IHostingEnvironment Environment { get; }
+
+        public Startup(IConfiguration configuration, IHostingEnvironment environment)
         {
             Configuration = configuration;
+            Environment = environment;
         }
 
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var migrationsAssembly = typeof(AppIdentityDbContext).GetTypeInfo().Assembly.GetName().Name;
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
-            services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("Default"), b => b.MigrationsAssembly(migrationsAssembly)));
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlite(connectionString));
 
-            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
-            services.AddIdentityServer()
-                .AddDeveloperSigningCredential()
-                .AddConfigurationStore(options => options.ConfigureDbContext = builder => builder.UseSqlite(Configuration.GetConnectionString("Default"), b => b.MigrationsAssembly(migrationsAssembly)))
-                .AddOperationalStore(options => {
-                    options.ConfigureDbContext = builder => builder.UseSqlite(Configuration.GetConnectionString("Default"), b => b.MigrationsAssembly(migrationsAssembly));
+            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 
-                    // this enables automatic token cleanup. this is optional. 
-                    options.EnableTokenCleanup = true;
-                    options.TokenCleanupInterval = 30;
+            services.Configure<IISOptions>(iis =>
+            {
+                iis.AuthenticationDisplayName = "Windows";
+                iis.AutomaticAuthentication = false;
+            });
+
+            var builder = services.AddIdentityServer(options =>
+            {
+                options.Events.RaiseErrorEvents = true;
+                options.Events.RaiseInformationEvents = true;
+                options.Events.RaiseFailureEvents = true;
+                options.Events.RaiseSuccessEvents = true;
+            })
+                // this adds the config data from DB (clients, resources)
+                .AddConfigurationStore(options =>
+                {
+                    options.ConfigureDbContext = b =>
+                        b.UseSqlite(connectionString,
+                            sql => sql.MigrationsAssembly(migrationsAssembly));
                 })
-                .AddAspNetIdentity<AppUser>();
+                // this adds the operational data from DB (codes, tokens, consents)
+                .AddOperationalStore(options =>
+                {
+                    options.ConfigureDbContext = b =>
+                        b.UseSqlite(connectionString,
+                            sql => sql.MigrationsAssembly(migrationsAssembly));
+
+                    // this enables automatic token cleanup. this is optional.
+                    options.EnableTokenCleanup = true;
+                })
+                .AddAspNetIdentity<ApplicationUser>();
+
+            if (Environment.IsDevelopment())
+            {
+                builder.AddDeveloperSigningCredential();
+            }
+            else
+            {
+                throw new Exception("need to configure key material");
+            }
+
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    // register your IdentityServer with Google at https://console.developers.google.com
+                    // enable the Google+ API
+                    // set the redirect URI to http://localhost:5000/signin-google
+                    options.ClientId = "copy client ID from Google here";
+                    options.ClientSecret = "copy client secret from Google here";
+                });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            app.InitializeDatabase();
-            app.UseDeveloperExceptionPage();
+            if (Environment.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+
+            app.UseStaticFiles();
             app.UseIdentityServer();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }

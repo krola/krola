@@ -1,0 +1,198 @@
+2019-07-07 11:22:14.289 +02:00 [INF] Starting IdentityServer4 version 2.3.2.0
+2019-07-07 11:22:14.486 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-07-07 11:22:14.488 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-07-07 11:22:14.491 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-07-07 11:22:14.492 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-07-07 11:22:14.494 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-07-07 11:22:14.495 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-07-07 11:22:14.634 +02:00 [DBG] Starting grant removal
+2019-07-07 11:22:52.420 +02:00 [DBG] Login Url: /Account/Login
+2019-07-07 11:22:52.422 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-07-07 11:22:52.424 +02:00 [DBG] Logout Url: /Account/Logout
+2019-07-07 11:22:52.426 +02:00 [DBG] ConsentUrl Url: /consent
+2019-07-07 11:22:52.428 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-07-07 11:22:52.429 +02:00 [DBG] Error Url: /home/error
+2019-07-07 11:22:52.429 +02:00 [DBG] Error Id Parameter: errorId
+2019-07-07 11:23:01.892 +02:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2019-07-07 11:23:23.293 +02:00 [DBG] CORS request made for path: /Account/Login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-07-07 11:23:23.739 +02:00 [ERR] Failed executing DbCommand (13ms) [Parameters=[@__normalizedUserName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."AccessFailedCount", "u"."ConcurrencyStamp", "u"."Email", "u"."EmailConfirmed", "u"."LockoutEnabled", "u"."LockoutEnd", "u"."NormalizedEmail", "u"."NormalizedUserName", "u"."PasswordHash", "u"."PhoneNumber", "u"."PhoneNumberConfirmed", "u"."SecurityStamp", "u"."TwoFactorEnabled", "u"."UserName"
+FROM "AspNetUsers" AS "u"
+WHERE "u"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: AspNetUsers'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+2019-07-07 11:23:23.839 +02:00 [ERR] An exception occurred in the database while iterating the results of a query for context type 'IdentityServerAspNetIdentity.Data.ApplicationDbContext'.
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: AspNetUsers'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.FirstOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: AspNetUsers'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.FirstOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+2019-07-07 11:23:23.863 +02:00 [ERR] An exception occurred in the database while iterating the results of a query for context type 'IdentityServerAspNetIdentity.Data.ApplicationDbContext'.
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: AspNetUsers'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.FirstOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteSingletonAsyncQuery[TResult](QueryContext queryContext, Func`2 compiledQuery, IDiagnosticsLogger`1 logger, Type contextType)
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: AspNetUsers'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.FirstOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteSingletonAsyncQuery[TResult](QueryContext queryContext, Func`2 compiledQuery, IDiagnosticsLogger`1 logger, Type contextType)
+2019-07-07 11:23:33.913 +02:00 [INF] {"Username":"alice","Endpoint":"UI","Category":"Authentication","Name":"User Login Failure","EventType":"Failure","Id":1001,"Message":"invalid credentials","ActivityId":"0HLO2NINSK5DR:00000009","TimeStamp":"2019-07-07T09:23:33.0000000Z","ProcessId":31876,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginFailureEvent"}
+2019-07-07 11:23:38.983 +02:00 [DBG] CORS request made for path: /Account/Login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-07-07 11:23:38.993 +02:00 [INF] {"Username":"alice","Endpoint":"UI","Category":"Authentication","Name":"User Login Failure","EventType":"Failure","Id":1001,"Message":"invalid credentials","ActivityId":"0HLO2NINSK5DR:0000000B","TimeStamp":"2019-07-07T09:23:38.0000000Z","ProcessId":31876,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginFailureEvent"}
+2019-07-07 11:24:13.506 +02:00 [DBG] TaskCanceledException. Exiting.
+2019-07-07 11:24:13.530 +02:00 [DBG] Stopping grant removal
+2019-07-07 11:26:08.712 +02:00 [INF] Starting IdentityServer4 version 2.3.2.0
+2019-07-07 11:26:08.809 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-07-07 11:26:08.811 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-07-07 11:26:08.814 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-07-07 11:26:08.815 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-07-07 11:26:08.816 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-07-07 11:26:08.817 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-07-07 11:26:08.900 +02:00 [DBG] Starting grant removal
+2019-07-07 11:26:14.072 +02:00 [DBG] Login Url: /Account/Login
+2019-07-07 11:26:14.074 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-07-07 11:26:14.076 +02:00 [DBG] Logout Url: /Account/Logout
+2019-07-07 11:26:14.077 +02:00 [DBG] ConsentUrl Url: /consent
+2019-07-07 11:26:14.079 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-07-07 11:26:14.080 +02:00 [DBG] Error Url: /home/error
+2019-07-07 11:26:14.081 +02:00 [DBG] Error Id Parameter: errorId
+2019-07-07 11:26:14.570 +02:00 [INF] {"Username":"alice","Endpoint":"UI","Category":"Authentication","Name":"User Login Failure","EventType":"Failure","Id":1001,"Message":"invalid credentials","ActivityId":"0HLO2NKK05LJI:00000001","TimeStamp":"2019-07-07T09:26:14.0000000Z","ProcessId":28684,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginFailureEvent"}
+2019-07-07 11:26:18.416 +02:00 [DBG] CORS request made for path: /Account/Login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-07-07 11:26:18.430 +02:00 [INF] {"Username":"alice","Endpoint":"UI","Category":"Authentication","Name":"User Login Failure","EventType":"Failure","Id":1001,"Message":"invalid credentials","ActivityId":"0HLO2NKK05LJL:00000004","TimeStamp":"2019-07-07T09:26:18.0000000Z","ProcessId":28684,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginFailureEvent"}
+2019-07-07 11:26:26.179 +02:00 [DBG] CORS request made for path: /Account/Login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-07-07 11:26:26.186 +02:00 [INF] {"Username":"alice","Endpoint":"UI","Category":"Authentication","Name":"User Login Failure","EventType":"Failure","Id":1001,"Message":"invalid credentials","ActivityId":"0HLO2NKK05LJL:00000005","TimeStamp":"2019-07-07T09:26:26.0000000Z","ProcessId":28684,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginFailureEvent"}
+2019-07-07 11:26:38.528 +02:00 [DBG] CORS request made for path: /Account/Login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-07-07 11:26:38.535 +02:00 [INF] {"Username":"bob","Endpoint":"UI","Category":"Authentication","Name":"User Login Failure","EventType":"Failure","Id":1001,"Message":"invalid credentials","ActivityId":"0HLO2NKK05LJL:00000006","TimeStamp":"2019-07-07T09:26:38.0000000Z","ProcessId":28684,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginFailureEvent"}
+2019-07-07 11:27:12.366 +02:00 [DBG] TaskCanceledException. Exiting.
+2019-07-07 11:27:12.391 +02:00 [DBG] Stopping grant removal
+2019-07-07 11:28:22.365 +02:00 [INF] Starting IdentityServer4 version 2.3.2.0
+2019-07-07 11:28:22.467 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-07-07 11:28:22.468 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-07-07 11:28:22.468 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-07-07 11:28:22.469 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-07-07 11:28:22.469 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-07-07 11:28:22.469 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-07-07 11:28:22.546 +02:00 [WRN] Unable to bind to http://localhost:5000 on the IPv4 loopback interface: 'An attempt was made to access a socket in a way forbidden by its access permissions'.
+2019-07-07 11:28:22.548 +02:00 [WRN] Unable to bind to http://localhost:5000 on the IPv6 loopback interface: 'An attempt was made to access a socket in a way forbidden by its access permissions'.
+2019-07-07 11:28:22.550 +02:00 [FTL] Unable to start Kestrel.
+System.IO.IOException: Failed to bind to address http://localhost:5000. ---> System.AggregateException: One or more errors occurred. (An attempt was made to access a socket in a way forbidden by its access permissions) (An attempt was made to access a socket in a way forbidden by its access permissions) ---> System.Net.Sockets.SocketException: An attempt was made to access a socket in a way forbidden by its access permissions
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransport.BindAsync()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer.<>c__DisplayClass22_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context)
+   --- End of inner exception stack trace ---
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(IServerAddressesFeature addresses, KestrelServerOptions serverOptions, ILogger logger, Func`2 createBinding)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+2019-07-07 11:28:22.595 +02:00 [FTL] An error occurred stopping the application
+System.AggregateException: One or more errors occurred. (Not started. Call Start first.) ---> System.InvalidOperationException: Not started. Call Start first.
+   at IdentityServer4.EntityFramework.TokenCleanup.Stop() in C:\local\identity\server4\EntityFramework.Storage\src\TokenCleanup\TokenCleanup.cs:line 77
+   at Microsoft.Extensions.DependencyInjection.TokenCleanupHost.StopAsync(CancellationToken cancellationToken) in C:\local\identity\server4\EntityFramework\src\TokenCleanupHost.cs:line 37
+   at Microsoft.AspNetCore.Hosting.Internal.HostedServiceExecutor.<>c__DisplayClass4_0.<StopAsync>b__0(IHostedService service)
+   at Microsoft.AspNetCore.Hosting.Internal.HostedServiceExecutor.ExecuteAsync(Func`2 callback)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Hosting.Internal.HostedServiceExecutor.ExecuteAsync(Func`2 callback)
+   at Microsoft.AspNetCore.Hosting.Internal.HostedServiceExecutor.StopAsync(CancellationToken token)
+---> (Inner Exception #0) System.InvalidOperationException: Not started. Call Start first.
+   at IdentityServer4.EntityFramework.TokenCleanup.Stop() in C:\local\identity\server4\EntityFramework.Storage\src\TokenCleanup\TokenCleanup.cs:line 77
+   at Microsoft.Extensions.DependencyInjection.TokenCleanupHost.StopAsync(CancellationToken cancellationToken) in C:\local\identity\server4\EntityFramework\src\TokenCleanupHost.cs:line 37
+   at Microsoft.AspNetCore.Hosting.Internal.HostedServiceExecutor.<>c__DisplayClass4_0.<StopAsync>b__0(IHostedService service)
+   at Microsoft.AspNetCore.Hosting.Internal.HostedServiceExecutor.ExecuteAsync(Func`2 callback)<---
+
+2019-07-07 11:28:50.935 +02:00 [INF] Starting IdentityServer4 version 2.3.2.0
+2019-07-07 11:28:51.040 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-07-07 11:28:51.041 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-07-07 11:28:51.041 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-07-07 11:28:51.042 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-07-07 11:28:51.042 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-07-07 11:28:51.042 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-07-07 11:28:51.131 +02:00 [DBG] Starting grant removal
+2019-07-07 11:29:02.693 +02:00 [DBG] Login Url: /Account/Login
+2019-07-07 11:29:02.695 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-07-07 11:29:02.698 +02:00 [DBG] Logout Url: /Account/Logout
+2019-07-07 11:29:02.699 +02:00 [DBG] ConsentUrl Url: /consent
+2019-07-07 11:29:02.701 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-07-07 11:29:02.702 +02:00 [DBG] Error Url: /home/error
+2019-07-07 11:29:02.702 +02:00 [DBG] Error Id Parameter: errorId
+2019-07-07 11:29:04.872 +02:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2019-07-07 11:29:15.292 +02:00 [DBG] CORS request made for path: /Account/Login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-07-07 11:29:15.759 +02:00 [DBG] Augmenting SignInContext
+2019-07-07 11:29:15.763 +02:00 [DBG] Adding idp claim with value: local
+2019-07-07 11:29:15.764 +02:00 [DBG] Adding amr claim with value: pwd
+2019-07-07 11:29:15.766 +02:00 [DBG] Adding auth_time claim with value: 1562491755
+2019-07-07 11:29:15.778 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2019-07-07 11:29:15.795 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"ab27fd78-f9aa-4959-917e-ccabdeb86986","DisplayName":"alice","Endpoint":"UI","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLO2NM688UCQ:00000006","TimeStamp":"2019-07-07T09:29:15.0000000Z","ProcessId":20616,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-07-07 11:29:15.859 +02:00 [DBG] 0 persisted grants found for ab27fd78-f9aa-4959-917e-ccabdeb86986
+2019-07-07 11:29:30.109 +02:00 [DBG] CORS request made for path: /Account/Logout from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-07-07 11:29:30.128 +02:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2019-07-07 11:29:30.132 +02:00 [INF] AuthenticationScheme: Identity.External signed out.
+2019-07-07 11:29:30.135 +02:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2019-07-07 11:29:30.140 +02:00 [INF] {"SubjectId":"ab27fd78-f9aa-4959-917e-ccabdeb86986","DisplayName":"Alice Smith","Category":"Authentication","Name":"User Logout Success","EventType":"Success","Id":1002,"Message":null,"ActivityId":"0HLO2NM688UCQ:00000009","TimeStamp":"2019-07-07T09:29:30.0000000Z","ProcessId":20616,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLogoutSuccessEvent"}
+2019-07-07 11:29:42.647 +02:00 [DBG] CORS request made for path: /Account/Login from origin: null but was ignored because path was not for an allowed IdentityServer CORS endpoint
+2019-07-07 11:29:42.667 +02:00 [DBG] Augmenting SignInContext
+2019-07-07 11:29:42.667 +02:00 [DBG] Adding idp claim with value: local
+2019-07-07 11:29:42.669 +02:00 [DBG] Adding amr claim with value: pwd
+2019-07-07 11:29:42.674 +02:00 [DBG] Adding auth_time claim with value: 1562491782
+2019-07-07 11:29:42.677 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2019-07-07 11:29:42.683 +02:00 [INF] {"Username":"bob","Provider":null,"ProviderUserId":null,"SubjectId":"b31cb476-ad0f-4225-8a11-bc4fbe45b99b","DisplayName":"bob","Endpoint":"UI","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLO2NM688UCQ:0000000C","TimeStamp":"2019-07-07T09:29:42.0000000Z","ProcessId":20616,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-07-07 11:29:42.708 +02:00 [DBG] 0 persisted grants found for b31cb476-ad0f-4225-8a11-bc4fbe45b99b
+2019-07-07 12:28:51.172 +02:00 [INF] Removing 0 grants
+2019-07-07 16:17:52.322 +02:00 [DBG] TaskCanceledException. Exiting.
+2019-07-07 16:17:52.337 +02:00 [DBG] Stopping grant removal

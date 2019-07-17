@@ -13,8 +13,4 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Services\Authorization.Api\Authorization.Api.csproj" />
-  </ItemGroup>
-
 </Project>

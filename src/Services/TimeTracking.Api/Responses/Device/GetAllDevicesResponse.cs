@@ -5,6 +5,6 @@ namespace Krola.TimeTracking.Api.Responses.Device
 {
     public class GetAllDevicesResponse : UseCaseResponseMessage
     {
-        public IEnumerable<Krola.Domain.TimeTracking.Device> Devices { get; set; }
+        public IEnumerable<Domain.TimeTracking.Device> Devices { get; set; }
     }
 }

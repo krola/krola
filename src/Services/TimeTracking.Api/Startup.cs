@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Krola.Web.Api.Core.Data;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -39,6 +40,7 @@ namespace Krola.TimeTracking.Api
                 });
             });
 
+            services.AddTransient(typeof(BaseRepository<,>), typeof(BaseRepository<,>));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
