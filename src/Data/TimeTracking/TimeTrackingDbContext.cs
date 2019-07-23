@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Krola.TimeTracking.Api.Data
+namespace Krola.Data.TimeTracking
 {
     public class TimeTrackingDbContext : DbContext
     {

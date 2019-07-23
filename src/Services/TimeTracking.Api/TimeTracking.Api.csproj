@@ -10,13 +10,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SQLite" Version="2.2.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Domain\TimeTracking\TimeTracking.csproj" />
-    <ProjectReference Include="..\..\Web\Api.Core\Api.Core.csproj" />
+    <ProjectReference Include="..\..\Data\TimeTracking\TimeTracking (Data).csproj" />
+    <ProjectReference Include="..\..\Domain\TimeTracking\TimeTracking (Domain).csproj" />
   </ItemGroup>
 
 </Project>

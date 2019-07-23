@@ -8,6 +8,7 @@ namespace Krola.Domain.TimeTracking
         public string Name { get; set; }
 
         public ICollection<Schedule> Schedules { get; set; }
+
         public ICollection<Session> Sessions { get; set; }
     }
 }

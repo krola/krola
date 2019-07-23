@@ -6,12 +6,13 @@ namespace Krola.Domain.TimeTracking
 {
     public class Session : BaseEntity
     {
-        public DateTime StarTime { get; set; }
+        public DateTime Star { get; set; }
 
-        public DateTime? EndTime { get; set; }
+        public DateTime? End { get; set; }
 
         [ForeignKey(nameof(Device))]
         public int DeviceId { get; set; }
+
         public virtual Device Device { get; set; }
     }
 }

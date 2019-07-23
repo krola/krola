@@ -1,13 +1,11 @@
-﻿using Krola.Web.Api.Core.Interfaces.Gateways.Repositories;
+﻿using Krola.Core.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace Krola.Web.Api.Core.Data
+namespace Krola.Core.Data
 {
-    public abstract class BaseRepository<C, T> : IRepository<T> where T : class where C : DbContext, new()
+    public class Repository<C, T> : IRepository<T> where T : class where C : DbContext, new()
     {
 
         private C _entities = new C();

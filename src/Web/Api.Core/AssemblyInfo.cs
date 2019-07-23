@@ -1,2 +1,0 @@
-﻿using System.Runtime.CompilerServices;
-[assembly: InternalsVisibleTo("Krola.Web.Api.Infrastructure"), InternalsVisibleTo("Krola.Web.Api.Core.UnitTests"),InternalsVisibleTo("Krola.Web.Api.IntegrationTests")]

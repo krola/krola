@@ -1,9 +1,8 @@
-﻿using Krola.Web.Api.Core.Interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Krola.TimeTracking.Api.Responses.Device
 {
-    public class GetAllDevicesResponse : UseCaseResponseMessage
+    public class GetAllDevicesResponse
     {
         public IEnumerable<Domain.TimeTracking.Device> Devices { get; set; }
     }

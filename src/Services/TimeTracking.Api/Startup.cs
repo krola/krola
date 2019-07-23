@@ -1,11 +1,13 @@
-﻿using Krola.Web.Api.Core.Data;
+﻿using Krola.Data.TimeTracking;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace Krola.TimeTracking.Api
 {
@@ -21,6 +23,12 @@ namespace Krola.TimeTracking.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            var migrationsAssembly = typeof(TimeTrackingDbContext).GetTypeInfo().Assembly.GetName().Name;
+
+            services.AddDbContext<TimeTrackingDbContext>(options =>
+                options.UseSqlite(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly)));
+
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
@@ -40,7 +48,6 @@ namespace Krola.TimeTracking.Api
                 });
             });
 
-            services.AddTransient(typeof(BaseRepository<,>), typeof(BaseRepository<,>));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
