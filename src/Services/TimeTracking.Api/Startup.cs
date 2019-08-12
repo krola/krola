@@ -1,4 +1,5 @@
-﻿using Krola.Data.TimeTracking;
+﻿using IdentityModel;
+using Krola.Data.TimeTracking;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -48,7 +49,15 @@ namespace Krola.TimeTracking.Api
                 });
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc();
+            services.AddAuthentication("Bearer")
+                .AddIdentityServerAuthentication(option =>
+                {
+                    option.Authority = "http://localhost:5000";
+                    option.RequireHttpsMetadata = false;
+                    option.ApiSecret = "time_tracking";
+                    option.ApiName = "time_tracking";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,10 +67,8 @@ namespace Krola.TimeTracking.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseAuthentication();
             app.UseSwagger();
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
-            // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Time Tracking API V1");

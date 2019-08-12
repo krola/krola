@@ -6,10 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace Krola.TimeTracking.Api.Controllers
 {
     [Route("api/[controller]")]
-    //[Authorize(Policy = "ApiUser")]
+    [Authorize()]
     [ApiController]
     public class DeviceController : ControllerBase
     {
+        [HttpGet]
         public ActionResult Get()
         {
             return Ok();
