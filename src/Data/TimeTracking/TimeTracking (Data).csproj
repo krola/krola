@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Data\Data (Core).csproj" />
     <ProjectReference Include="..\..\Domain\Shared\Shared (Domain).csproj" />
     <ProjectReference Include="..\..\Domain\TimeTracking\TimeTracking (Domain).csproj" />
   </ItemGroup>
