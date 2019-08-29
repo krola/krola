@@ -1,4 +1,5 @@
 ﻿using Krola.Core.Data.Interfaces;
+using Krola.Domain.Shared;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 namespace Krola.Core.Data
 {
     public class Repository<C, T, F> : IRepository<T> 
-        where T : class 
+        where T : BaseEntity 
         where C : DbContext
         where F : DesignTimeDbContextFactoryBase<C>
     {
