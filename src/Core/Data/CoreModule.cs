@@ -7,7 +7,7 @@ namespace Krola.Core.Data
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterGeneric(typeof(Repository<,>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
+            builder.RegisterGeneric(typeof(Repository<,,>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
         }
     }
 }

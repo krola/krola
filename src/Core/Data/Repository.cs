@@ -2,37 +2,43 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Krola.Core.Data
 {
-    public class Repository<C, T> : IRepository<T> where T : class where C : DbContext, new()
+    public class Repository<C, T, F> : IRepository<T> 
+        where T : class 
+        where C : DbContext
+        where F : DesignTimeDbContextFactoryBase<C>
     {
 
-        private C _entities = new C();
+        private readonly C _entities;
+
+        public Repository(F dbContextFactory)
+        {
+            _entities = dbContextFactory.Create();
+        }
+
         public C Context
         {
 
             get { return _entities; }
-            set { _entities = value; }
         }
 
         public virtual IQueryable<T> GetAll()
         {
-
-            IQueryable<T> query = _entities.Set<T>();
-            return query;
+            return _entities.Set<T>();
         }
 
         public IQueryable<T> FindBy(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
         {
 
-            IQueryable<T> query = _entities.Set<T>().Where(predicate);
-            return query;
+            return _entities.Set<T>().Where(predicate);
         }
 
-        public virtual void Add(T entity)
+        public virtual async Task Add(T entity)
         {
-            _entities.Set<T>().Add(entity);
+            await _entities.Set<T>().AddAsync(entity);
         }
 
         public virtual void Delete(T entity)
@@ -45,9 +51,9 @@ namespace Krola.Core.Data
             //_entities.Entry(entity).State = System.Data.EntityState.Modified;
         }
 
-        public virtual void Save()
+        public virtual async Task Save()
         {
-            _entities.SaveChanges();
+            await _entities.SaveChangesAsync();
         }
     }
 }

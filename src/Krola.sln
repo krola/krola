@@ -48,7 +48,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeTracking (Data)", "Data
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{804A4676-207B-4EDB-8169-CC2FA5219DEA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data (Core)", "Core\Api\Api\Data (Core).csproj", "{E6DAA0F7-5E13-4BB1-8E02-B703A88064C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data (Core)", "Core\Data\Data (Core).csproj", "{E6DAA0F7-5E13-4BB1-8E02-B703A88064C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization (Data)", "Data\Authorization\Authorization (Data).csproj", "{7FB067F8-EA21-4F43-8B15-1E01D92FE14D}"
 EndProject

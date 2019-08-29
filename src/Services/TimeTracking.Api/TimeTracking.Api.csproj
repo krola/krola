@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Api\Api\Data (Core).csproj" />
     <ProjectReference Include="..\..\Data\TimeTracking\TimeTracking (Data).csproj" />
     <ProjectReference Include="..\..\Domain\TimeTracking\TimeTracking (Domain).csproj" />
   </ItemGroup>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Krola.Core.Data.Interfaces
 {
@@ -8,9 +9,9 @@ namespace Krola.Core.Data.Interfaces
     {
         IQueryable<T> GetAll();
         IQueryable<T> FindBy(Expression<Func<T, bool>> predicate);
-        void Add(T entity);
+        Task Add(T entity);
         void Delete(T entity);
         void Edit(T entity);
-        void Save();
+        Task Save();
     }
 }
