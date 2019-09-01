@@ -1,9 +1,7 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
-
-using IdentityServerAspNetIdentity.Data;
-using IdentityServerAspNetIdentity.Models;
+﻿using IdentityServer4.EntityFramework.DbContexts;
+using Krola.Core.Data;
+using Krola.Data.Authorization;
+using Krola.Domain.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -13,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Reflection;
 
-namespace IdentityServerAspNetIdentity
+namespace Krola.Authorization.IdentityServer
 {
     public class Startup
     {
@@ -28,14 +26,12 @@ namespace IdentityServerAspNetIdentity
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = Configuration.GetConnectionString("DefaultConnection");
-            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+            var migrationsAssembly = typeof(IdentityServerDbContext).GetTypeInfo().Assembly;
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(connectionString));
-
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+            services.AddDbContext<IdentityServerDbContext>(options => DbContextOptionsBuilderFactory.SetupContextOptionsBuilder<IdentityServerDbContext>(options));
+           
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<IdentityServerDbContext>()
                 .AddDefaultTokenProviders();
 
             services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
@@ -56,21 +52,17 @@ namespace IdentityServerAspNetIdentity
                 // this adds the config data from DB (clients, resources)
                 .AddConfigurationStore(options =>
                 {
-                    options.ConfigureDbContext = b =>
-                        b.UseSqlite(connectionString,
-                            sql => sql.MigrationsAssembly(migrationsAssembly));
+                    options.ConfigureDbContext = b => DbContextOptionsBuilderFactory.SetupContextOptionsBuilder(b, migrationsAssembly);
                 })
                 // this adds the operational data from DB (codes, tokens, consents)
                 .AddOperationalStore(options =>
                 {
-                    options.ConfigureDbContext = b =>
-                        b.UseSqlite(connectionString,
-                            sql => sql.MigrationsAssembly(migrationsAssembly));
+                    options.ConfigureDbContext = b => DbContextOptionsBuilderFactory.SetupContextOptionsBuilder(b, migrationsAssembly);
 
                     // this enables automatic token cleanup. this is optional.
                     options.EnableTokenCleanup = true;
                 })
-                .AddAspNetIdentity<ApplicationUser>();
+                .AddAspNetIdentity<User>();
 
             if (Environment.IsDevelopment())
             {

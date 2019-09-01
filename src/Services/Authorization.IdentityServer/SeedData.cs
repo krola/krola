@@ -5,28 +5,28 @@ using System.Security.Claims;
 using IdentityModel;
 using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
-using IdentityServerAspNetIdentity.Data;
-using IdentityServerAspNetIdentity.Models;
+using Krola.Data.Authorization;
+using Krola.Domain.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace IdentityServerAspNetIdentity
+namespace Krola.Authorization.IdentityServer
 {
     public class SeedData
     {
         public static void EnsureSeedData(IServiceProvider provider)
         {
-            provider.GetRequiredService<ApplicationDbContext>().Database.Migrate();
+            provider.GetRequiredService<IdentityServerDbContext>().Database.Migrate();
             provider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
             provider.GetRequiredService<ConfigurationDbContext>().Database.Migrate();
 
             {
-                var userMgr = provider.GetRequiredService<UserManager<ApplicationUser>>();
+                var userMgr = provider.GetRequiredService<UserManager<User>>();
                 var alice = userMgr.FindByNameAsync("alice").Result;
                 if (alice == null)
                 {
-                    alice = new ApplicationUser
+                    alice = new User
                     {
                         UserName = "alice"
                     };
@@ -61,7 +61,7 @@ namespace IdentityServerAspNetIdentity
                 var bob = userMgr.FindByNameAsync("bob").Result;
                 if (bob == null)
                 {
-                    bob = new ApplicationUser
+                    bob = new User
                     {
                         UserName = "bob"
                     };

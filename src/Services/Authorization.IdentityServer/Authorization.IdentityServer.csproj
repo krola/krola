@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Krola.Authorization.IdentityServer</AssemblyName>
+    <RootNamespace>Krola.Authorization.IdentityServer</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,5 +23,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.6" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Data\Data (Core).csproj" />
+    <ProjectReference Include="..\..\Data\Authorization\Authorization (Data).csproj" />
+    <ProjectReference Include="..\..\Domain\Authorization\Authorization (Domain).csproj" />
+    <ProjectReference Include="..\..\Domain\Shared\Shared (Domain).csproj" />
   </ItemGroup>
 </Project>

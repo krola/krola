@@ -12,7 +12,7 @@ namespace Krola.Core.Data
 
         public TContext Create()
         {
-            var optionsBuilder = DbContextOptionsBuilderFactory<TContext>.Create();
+            var optionsBuilder = DbContextOptionsBuilderFactory.Create<TContext>();
 
             return CreateNewInstance(optionsBuilder.Options);
         }

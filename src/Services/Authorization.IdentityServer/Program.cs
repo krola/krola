@@ -11,7 +11,7 @@ using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
 using System.Linq;
 
-namespace IdentityServerAspNetIdentity
+namespace Krola.Authorization.IdentityServer
 {
     public class Program
     {
@@ -22,14 +22,14 @@ namespace IdentityServerAspNetIdentity
 
             var host = CreateWebHostBuilder(args).Build();
 
-            if (seed)
-            {
-                using (var scope = host.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
-                {
-                    SeedData.EnsureSeedData(scope.ServiceProvider);
-                    return;
-                }
-            }
+            //if (seed)
+            //{
+            //    using (var scope = host.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //    {
+            //        SeedData.EnsureSeedData(scope.ServiceProvider);
+            //        return;
+            //    }
+            //}
 
             host.Run();
         }

@@ -2,7 +2,7 @@
 using IdentityServer4.Models;
 using System.Collections.Generic;
 
-namespace IdentityServerAspNetIdentity
+namespace Krola.Authorization.IdentityServer
 {
     public static class Config
     {

@@ -1,7 +1,6 @@
 ﻿using Krola.Core.Data;
 using Krola.Core.Data.Interfaces;
 using Krola.Data.TimeTracking;
-using Krola.Domain.Shared;
 using Krola.TimeTracking.Api.Interfaces;
 using Krola.TimeTracking.Api.Services;
 using Microsoft.AspNetCore.Builder;
@@ -25,7 +24,7 @@ namespace Krola.TimeTracking.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TimeTrackingDbContext>(options => DbContextOptionsBuilderFactory<TimeTrackingDbContext>.Create());
+            services.AddDbContext<TimeTrackingDbContext>(options => DbContextOptionsBuilderFactory.Create<TimeTrackingDbContext>());
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>

@@ -1,0 +1,2 @@
+dotnet ef migrations add InitialIdentityServerConfigurationDbMigration -c ConfigurationDbContext -o Migrations/ConfigurationDb --startup-project ../../Services/Authorization.IdentityServer --verbose
+dotnet ef migrations add InitialIdentityServerPersistedGrantDbMigration -c PersistedGrantDbContext -o Migrations/PersistedGrantDb --startup-project ../../Services/Authorization.IdentityServer --verbose

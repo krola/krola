@@ -1,16 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Reflection;
 
 namespace Krola.Core.Data
 {
-    public class DbContextOptionsBuilderFactory<TContext> where TContext : DbContext
+    public class DbContextOptionsBuilderFactory
     {
-        public static DbContextOptionsBuilder<TContext> Create()
+        public const string ConnectionStringName = "DefaultConnection";
+        public static void SetupContextOptionsBuilder(DbContextOptionsBuilder contextOptionsBuilder, Assembly migrationsAssembly)
         {
             var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             //var basePath = AppContext.BaseDirectory;
             var basePath = Environment.CurrentDirectory;
+
+            Console.WriteLine("DesignTimeDbContextFactory.Create(string): Base path string: {0}", basePath);
+
             var builder = new ConfigurationBuilder()
                 .SetBasePath(basePath)
                 .AddJsonFile("appsettings.json")
@@ -18,21 +23,31 @@ namespace Krola.Core.Data
                 .AddEnvironmentVariables();
 
             var config = builder.Build();
-            var connectionString = config.GetConnectionString("DefaultConnection");
+            var connectionString = config.GetConnectionString(ConnectionStringName);
 
             if (string.IsNullOrWhiteSpace(connectionString))
             {
                 throw new InvalidOperationException(
-                    "Could not find a connection string named 'DefaultConnection'.");
+                    $"Could not find a connection string named '{ConnectionStringName}'.");
             }
-
-            var optionsBuilder = new DbContextOptionsBuilder<TContext>();
 
             Console.WriteLine("DesignTimeDbContextFactory.Create(string): Connection string: {0}", connectionString);
 
-            optionsBuilder.UseSqlite(connectionString);
+            contextOptionsBuilder.UseSqlite(connectionString, m => m.MigrationsAssembly(migrationsAssembly.FullName));
+        }
 
-            return optionsBuilder;
+        public static void SetupContextOptionsBuilder<TContext>(DbContextOptionsBuilder contextOptionsBuilder) where TContext : DbContext
+        {
+            SetupContextOptionsBuilder(contextOptionsBuilder, typeof(TContext).Assembly);
+        }
+
+        public static DbContextOptionsBuilder<TContext> Create<TContext>() where TContext : DbContext
+        {
+            var contextOptionsBuilder = new DbContextOptionsBuilder<TContext>();
+
+            SetupContextOptionsBuilder(contextOptionsBuilder, typeof(TContext).Assembly);
+
+            return contextOptionsBuilder;
         }
     }
 }
