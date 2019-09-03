@@ -1,13 +1,20 @@
-﻿using Krola.Core.Data;
+﻿using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Krola.Core.Data;
 using Krola.Core.Data.Interfaces;
+using Krola.Core.Infrastructure;
+using Krola.Core.Infrastructure.Interfaces;
+using Krola.Core.Infrastructure.Services;
 using Krola.Data.TimeTracking;
 using Krola.TimeTracking.Api.Interfaces;
 using Krola.TimeTracking.Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
+using System;
 using System.Collections.Generic;
 
 namespace Krola.TimeTracking.Api
@@ -22,7 +29,8 @@ namespace Krola.TimeTracking.Api
         public static IConfiguration Configuration { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+       // public IServiceProvider ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TimeTrackingDbContext>(options => DbContextOptionsBuilderFactory.Create<TimeTrackingDbContext>());
 
@@ -45,8 +53,11 @@ namespace Krola.TimeTracking.Api
                 });
             });
             services.AddSingleton(typeof(TimeTrackingDbContextFactory));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient(typeof(IRepository<>), typeof(TimeTrackingRepository<>));
             services.AddTransient<IDeviceService, DeviceService>();
+            services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<IHttpContextUserProvider, HttpContextUserProvider>();
             services.AddMvc();
             services.AddAuthentication("Bearer")
                 .AddIdentityServerAuthentication(option =>
@@ -56,6 +67,13 @@ namespace Krola.TimeTracking.Api
                     option.ApiSecret = "time_tracking";
                     option.ApiName = "time_tracking";
                 });
+
+            var builder = new ContainerBuilder();
+            builder.Populate(services);
+            builder.RegisterModule<InfrastructureModule>();
+            var container = builder.Build();
+
+            return new AutofacServiceProvider(container);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

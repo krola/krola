@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.9.4" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="2.7.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
@@ -19,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Data\Data (Core).csproj" />
+    <ProjectReference Include="..\..\Core\Infrastructure (Core)\Infrastructure (Core).csproj" />
     <ProjectReference Include="..\..\Data\TimeTracking\TimeTracking (Data).csproj" />
     <ProjectReference Include="..\..\Domain\TimeTracking\TimeTracking (Domain).csproj" />
   </ItemGroup>

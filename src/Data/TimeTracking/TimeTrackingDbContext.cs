@@ -3,6 +3,7 @@ using Krola.Domain.TimeTracking;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Krola.Data.TimeTracking
@@ -24,7 +25,7 @@ namespace Krola.Data.TimeTracking
             return base.SaveChanges();
         }
 
-        public async Task<int> SaveChangesAsync()
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             AddAuditInfo();
             return await base.SaveChangesAsync();

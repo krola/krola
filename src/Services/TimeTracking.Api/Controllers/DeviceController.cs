@@ -27,11 +27,27 @@ namespace Krola.TimeTracking.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<JsonResult> Add([FromBody]string name)
+        public async Task<JsonResult> Add([FromBody]DeviceRequest deviceRequest)
         {
-            var newDevice = await _deviceService.Add(name);
+            var newDevice = await _deviceService.Add(deviceRequest.Name);
 
             return new JsonResult(newDevice);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<OkResult> Update(int id, [FromBody]DeviceRequest deviceRequest)
+        {
+            await _deviceService.Update(id, deviceRequest.Name);
+
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<OkResult> Delete(int id)
+        {
+            await _deviceService.Delete(id);
+
+            return Ok();
         }
     }
 }

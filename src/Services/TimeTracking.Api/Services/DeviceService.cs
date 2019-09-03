@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Krola.Core.Data.Interfaces;
+using Krola.Core.Infrastructure.Interfaces;
 using Krola.Domain.TimeTracking;
 using Krola.TimeTracking.Api.Dto;
 using Krola.TimeTracking.Api.Interfaces;
@@ -12,17 +13,21 @@ namespace Krola.TimeTracking.Api.Services
     public class DeviceService : IDeviceService
     {
         private readonly IRepository<Device> _repository;
+        private readonly IHttpContextUserProvider _httpContextUserProvider;
 
-        public DeviceService(IRepository<Device> repository)
+        public DeviceService(IRepository<Device> repository, IHttpContextUserProvider httpContextUserProvider)
         {
             _repository = repository;
+            _httpContextUserProvider = httpContextUserProvider;
         }
 
         public async Task<DeviceDto> Add(string name)
         {
+            var userId = await _httpContextUserProvider.GetUserId();
             var newDevice = new Device
             {
-                Name = name
+                Name = name,
+                UserId = userId
             };
 
             await _repository.Add(newDevice);
@@ -37,7 +42,9 @@ namespace Krola.TimeTracking.Api.Services
 
         public async Task<IEnumerable<DeviceDto>> GetAll()
         {
+            var userId = await _httpContextUserProvider.GetUserId();
             return await _repository.GetAll()
+                .Where(d => d.UserId == userId)
                 .Select(d => new DeviceDto
                 {
                     Id = d.Id,
@@ -46,14 +53,31 @@ namespace Krola.TimeTracking.Api.Services
                 .ToListAsync();
         }
 
-        public void Remove(int id)
+        public async Task Delete(int id)
         {
-            throw new System.NotImplementedException();
+            var device = _repository.FindBy(d => d.Id == id).SingleOrDefault();
+
+            if (device == null)
+            {
+                throw new KeyNotFoundException();
+            }
+
+            _repository.Delete(device);
+            await _repository.Save();
         }
 
-        public void Update(int id, string NewName)
+        public async Task Update(int id, string newName)
         {
-            throw new System.NotImplementedException();
+            var device = _repository.FindBy(d => d.Id == id).SingleOrDefault();
+
+            if (device == null)
+            {
+                throw new KeyNotFoundException();
+            }
+
+            device.Name = newName;
+
+            await _repository.Save();
         }
     }
 }

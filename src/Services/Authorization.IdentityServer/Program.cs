@@ -22,14 +22,14 @@ namespace Krola.Authorization.IdentityServer
 
             var host = CreateWebHostBuilder(args).Build();
 
-            //if (seed)
-            //{
-            //    using (var scope = host.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            //    {
-            //        SeedData.EnsureSeedData(scope.ServiceProvider);
-            //        return;
-            //    }
-            //}
+            if (seed)
+            {
+                using (var scope = host.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+                {
+                    SeedData.EnsureSeedData(scope.ServiceProvider);
+                    return;
+                }
+            }
 
             host.Run();
         }

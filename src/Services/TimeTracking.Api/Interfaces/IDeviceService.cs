@@ -12,8 +12,8 @@ namespace Krola.TimeTracking.Api.Interfaces
 
         Task<DeviceDto> Add(string name);
 
-        void Remove(int id);
+        Task Delete(int id);
 
-        void Update(int id, string newName);
+        Task Update(int id, string newName);
     }
 }

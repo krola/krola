@@ -1199,3 +1199,490 @@ System.AggregateException: One or more errors occurred. (Not started. Call Start
 2019-09-01 12:40:18.640 +02:00 [DBG] Token request success.
 2019-09-01 12:40:42.764 +02:00 [DBG] TaskCanceledException. Exiting.
 2019-09-01 12:40:42.778 +02:00 [DBG] Stopping grant removal
+2019-09-01 12:43:27.837 +02:00 [INF] Starting IdentityServer4 version 2.3.2.0
+2019-09-01 12:43:27.954 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-09-01 12:43:27.956 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-09-01 12:43:27.956 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-09-01 12:43:27.956 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-09-01 12:43:27.957 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-09-01 12:43:27.957 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-09-01 12:43:28.044 +02:00 [DBG] Starting grant removal
+2019-09-01 12:43:58.544 +02:00 [DBG] Login Url: /Account/Login
+2019-09-01 12:43:58.547 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-09-01 12:43:58.549 +02:00 [DBG] Logout Url: /Account/Logout
+2019-09-01 12:43:58.550 +02:00 [DBG] ConsentUrl Url: /consent
+2019-09-01 12:43:58.553 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-09-01 12:43:58.555 +02:00 [DBG] Error Url: /home/error
+2019-09-01 12:43:58.556 +02:00 [DBG] Error Id Parameter: errorId
+2019-09-01 12:43:58.580 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2019-09-01 12:43:58.635 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-09-01 12:43:58.646 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-09-01 12:43:58.666 +02:00 [DBG] Start token request.
+2019-09-01 12:43:58.677 +02:00 [DBG] Start client validation
+2019-09-01 12:43:58.683 +02:00 [DBG] Start parsing Basic Authentication secret
+2019-09-01 12:43:58.691 +02:00 [DBG] Start parsing for secret in post body
+2019-09-01 12:43:58.715 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2019-09-01 12:43:58.716 +02:00 [DBG] Secret id found: ro.time_tracking
+2019-09-01 12:43:59.700 +02:00 [DBG] ro.time_tracking found in database: true
+2019-09-01 12:43:59.715 +02:00 [DBG] client configuration validation for client ro.time_tracking succeeded.
+2019-09-01 12:43:59.730 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-09-01 12:43:59.730 +02:00 [DBG] Client validation success
+2019-09-01 12:43:59.753 +02:00 [INF] {"ClientId":"ro.time_tracking","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLPEP55M4CF7:00000001","TimeStamp":"2019-09-01T10:43:59.0000000Z","ProcessId":11032,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2019-09-01 12:43:59.776 +02:00 [DBG] Start token request validation
+2019-09-01 12:43:59.790 +02:00 [DBG] Start resource owner password token request validation
+2019-09-01 12:43:59.838 +02:00 [DBG] Found [] identity scopes in database
+2019-09-01 12:44:00.021 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-01 12:44:00.044 +02:00 [DBG] Found [] identity scopes in database
+2019-09-01 12:44:00.053 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-01 12:44:00.183 +02:00 [INF] Credentials validated for username: alice
+2019-09-01 12:44:00.187 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":"alice","Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPEP55M4CF7:00000001","TimeStamp":"2019-09-01T10:44:00.0000000Z","ProcessId":11032,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-01 12:44:00.205 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":null,"Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPEP55M4CF7:00000001","TimeStamp":"2019-09-01T10:44:00.0000000Z","ProcessId":11032,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-01 12:44:00.212 +02:00 [DBG] Resource owner password token request validation success.
+2019-09-01 12:44:00.221 +02:00 [INF] Token request validation success
+{"ClientId":"ro.time_tracking","ClientName":null,"GrantType":"password","Scopes":"time_tracking","AuthorizationCode":null,"RefreshToken":null,"UserName":"alice","AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"username":"alice","password":"***REDACTED***","grant_type":"password","scope":"time_tracking","client_id":"ro.time_tracking","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-09-01 12:44:00.258 +02:00 [DBG] Getting claims for access token for client: ro.time_tracking
+2019-09-01 12:44:00.259 +02:00 [DBG] Getting claims for access token for subject: 358e665f-d92f-4203-bc36-293e38b9a624
+2019-09-01 12:44:00.397 +02:00 [INF] {"ClientId":"ro.time_tracking","ClientName":null,"RedirectUri":null,"Endpoint":"Token","SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","Scopes":"time_tracking","GrantType":"password","Tokens":[{"TokenType":"access_token","TokenValue":"****Flxg","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLPEP55M4CF7:00000001","TimeStamp":"2019-09-01T10:44:00.0000000Z","ProcessId":11032,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2019-09-01 12:44:00.413 +02:00 [DBG] Token request success.
+2019-09-01 12:44:22.936 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-01 12:44:22.958 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-01 12:44:22.960 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-01 12:44:22.967 +02:00 [DBG] Start discovery request
+2019-09-01 12:44:23.080 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-01 12:44:23.139 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-01 12:44:23.152 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-01 12:44:23.155 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-01 12:44:23.161 +02:00 [DBG] Start key discovery request
+2019-09-01 13:43:28.099 +02:00 [INF] Removing 0 grants
+2019-09-01 14:43:28.114 +02:00 [INF] Removing 0 grants
+2019-09-01 15:43:28.536 +02:00 [INF] Removing 0 grants
+2019-09-01 16:43:28.549 +02:00 [INF] Removing 0 grants
+2019-09-01 17:43:28.565 +02:00 [INF] Removing 0 grants
+2019-09-01 18:43:28.578 +02:00 [INF] Removing 0 grants
+2019-09-01 19:43:28.707 +02:00 [INF] Removing 0 grants
+2019-09-01 20:43:28.726 +02:00 [INF] Removing 0 grants
+2019-09-01 21:43:29.070 +02:00 [INF] Removing 0 grants
+2019-09-01 22:43:29.095 +02:00 [INF] Removing 0 grants
+2019-09-01 23:32:34.196 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2019-09-01 23:32:34.217 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-09-01 23:32:34.220 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-09-01 23:32:34.225 +02:00 [DBG] Start token request.
+2019-09-01 23:32:34.227 +02:00 [DBG] Start client validation
+2019-09-01 23:32:34.229 +02:00 [DBG] Start parsing Basic Authentication secret
+2019-09-01 23:32:34.234 +02:00 [DBG] Start parsing for secret in post body
+2019-09-01 23:32:34.238 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2019-09-01 23:32:34.239 +02:00 [DBG] Secret id found: ro.time_tracking
+2019-09-01 23:32:34.258 +02:00 [DBG] ro.time_tracking found in database: true
+2019-09-01 23:32:34.261 +02:00 [DBG] client configuration validation for client ro.time_tracking succeeded.
+2019-09-01 23:32:34.270 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-09-01 23:32:34.272 +02:00 [DBG] Client validation success
+2019-09-01 23:32:34.276 +02:00 [INF] {"ClientId":"ro.time_tracking","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLPEP55M4CFA:00000001","TimeStamp":"2019-09-01T21:32:34.0000000Z","ProcessId":11032,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2019-09-01 23:32:34.286 +02:00 [DBG] Start token request validation
+2019-09-01 23:32:34.287 +02:00 [DBG] Start resource owner password token request validation
+2019-09-01 23:32:34.297 +02:00 [DBG] Found [] identity scopes in database
+2019-09-01 23:32:34.309 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-01 23:32:34.317 +02:00 [DBG] Found [] identity scopes in database
+2019-09-01 23:32:34.324 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-01 23:32:34.347 +02:00 [INF] Credentials validated for username: alice
+2019-09-01 23:32:34.351 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":"alice","Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPEP55M4CFA:00000001","TimeStamp":"2019-09-01T21:32:34.0000000Z","ProcessId":11032,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-01 23:32:34.369 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":null,"Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPEP55M4CFA:00000001","TimeStamp":"2019-09-01T21:32:34.0000000Z","ProcessId":11032,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-01 23:32:34.378 +02:00 [DBG] Resource owner password token request validation success.
+2019-09-01 23:32:34.382 +02:00 [INF] Token request validation success
+{"ClientId":"ro.time_tracking","ClientName":null,"GrantType":"password","Scopes":"time_tracking","AuthorizationCode":null,"RefreshToken":null,"UserName":"alice","AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"username":"alice","password":"***REDACTED***","grant_type":"password","scope":"time_tracking","client_id":"ro.time_tracking","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-09-01 23:32:34.390 +02:00 [DBG] Getting claims for access token for client: ro.time_tracking
+2019-09-01 23:32:34.393 +02:00 [DBG] Getting claims for access token for subject: 358e665f-d92f-4203-bc36-293e38b9a624
+2019-09-01 23:32:34.413 +02:00 [INF] {"ClientId":"ro.time_tracking","ClientName":null,"RedirectUri":null,"Endpoint":"Token","SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","Scopes":"time_tracking","GrantType":"password","Tokens":[{"TokenType":"access_token","TokenValue":"****pQ6g","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLPEP55M4CFA:00000001","TimeStamp":"2019-09-01T21:32:34.0000000Z","ProcessId":11032,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2019-09-01 23:32:34.432 +02:00 [DBG] Token request success.
+2019-09-01 23:32:57.455 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-01 23:32:57.469 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-01 23:32:57.473 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-01 23:32:57.475 +02:00 [DBG] Start discovery request
+2019-09-01 23:32:57.484 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-01 23:32:57.558 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-01 23:32:57.569 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-01 23:32:57.576 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-01 23:32:57.579 +02:00 [DBG] Start key discovery request
+2019-09-01 23:35:37.451 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-01 23:35:37.468 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-01 23:35:37.472 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-01 23:35:37.474 +02:00 [DBG] Start discovery request
+2019-09-01 23:35:37.487 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-01 23:35:37.554 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-01 23:35:37.565 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-01 23:35:37.571 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-01 23:35:37.572 +02:00 [DBG] Start key discovery request
+2019-09-01 23:43:29.119 +02:00 [INF] Removing 0 grants
+2019-09-01 23:48:03.912 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2019-09-01 23:48:03.932 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-09-01 23:48:03.939 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-09-01 23:48:03.941 +02:00 [DBG] Start token request.
+2019-09-01 23:48:03.942 +02:00 [DBG] Start client validation
+2019-09-01 23:48:03.943 +02:00 [DBG] Start parsing Basic Authentication secret
+2019-09-01 23:48:03.947 +02:00 [DBG] Start parsing for secret in post body
+2019-09-01 23:48:03.950 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2019-09-01 23:48:03.953 +02:00 [DBG] Secret id found: ro.time_tracking
+2019-09-01 23:48:03.959 +02:00 [DBG] ro.time_tracking found in database: true
+2019-09-01 23:48:03.969 +02:00 [DBG] client configuration validation for client ro.time_tracking succeeded.
+2019-09-01 23:48:03.973 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-09-01 23:48:03.974 +02:00 [DBG] Client validation success
+2019-09-01 23:48:03.975 +02:00 [INF] {"ClientId":"ro.time_tracking","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLPEP55M4CFE:00000001","TimeStamp":"2019-09-01T21:48:03.0000000Z","ProcessId":11032,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2019-09-01 23:48:03.986 +02:00 [DBG] Start token request validation
+2019-09-01 23:48:03.988 +02:00 [DBG] Start resource owner password token request validation
+2019-09-01 23:48:04.000 +02:00 [DBG] Found [] identity scopes in database
+2019-09-01 23:48:04.010 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-01 23:48:04.015 +02:00 [DBG] Found [] identity scopes in database
+2019-09-01 23:48:04.026 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-01 23:48:04.039 +02:00 [INF] Credentials validated for username: alice
+2019-09-01 23:48:04.043 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":"alice","Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPEP55M4CFE:00000001","TimeStamp":"2019-09-01T21:48:04.0000000Z","ProcessId":11032,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-01 23:48:04.056 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":null,"Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPEP55M4CFE:00000001","TimeStamp":"2019-09-01T21:48:04.0000000Z","ProcessId":11032,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-01 23:48:04.065 +02:00 [DBG] Resource owner password token request validation success.
+2019-09-01 23:48:04.067 +02:00 [INF] Token request validation success
+{"ClientId":"ro.time_tracking","ClientName":null,"GrantType":"password","Scopes":"time_tracking","AuthorizationCode":null,"RefreshToken":null,"UserName":"alice","AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"username":"alice","password":"***REDACTED***","grant_type":"password","scope":"time_tracking","client_id":"ro.time_tracking","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-09-01 23:48:04.078 +02:00 [DBG] Getting claims for access token for client: ro.time_tracking
+2019-09-01 23:48:04.080 +02:00 [DBG] Getting claims for access token for subject: 358e665f-d92f-4203-bc36-293e38b9a624
+2019-09-01 23:48:04.090 +02:00 [INF] {"ClientId":"ro.time_tracking","ClientName":null,"RedirectUri":null,"Endpoint":"Token","SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","Scopes":"time_tracking","GrantType":"password","Tokens":[{"TokenType":"access_token","TokenValue":"****DDKw","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLPEP55M4CFE:00000001","TimeStamp":"2019-09-01T21:48:04.0000000Z","ProcessId":11032,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2019-09-01 23:48:04.101 +02:00 [DBG] Token request success.
+2019-09-01 23:51:06.951 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-01 23:51:06.967 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-01 23:51:06.974 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-01 23:51:06.982 +02:00 [DBG] Start discovery request
+2019-09-01 23:51:06.996 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-01 23:51:07.067 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-01 23:51:07.089 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-01 23:51:07.096 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-01 23:51:07.098 +02:00 [DBG] Start key discovery request
+2019-09-01 23:52:43.357 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-01 23:52:43.368 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-01 23:52:43.376 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-01 23:52:43.380 +02:00 [DBG] Start discovery request
+2019-09-01 23:52:43.388 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-01 23:52:43.440 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-01 23:52:43.450 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-01 23:52:43.456 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-01 23:52:43.460 +02:00 [DBG] Start key discovery request
+2019-09-01 23:58:54.556 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-01 23:58:54.580 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-01 23:58:54.584 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-01 23:58:54.586 +02:00 [DBG] Start discovery request
+2019-09-01 23:58:54.592 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-01 23:58:54.646 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-01 23:58:54.664 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-01 23:58:54.671 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-01 23:58:54.676 +02:00 [DBG] Start key discovery request
+2019-09-02 08:01:53.221 +02:00 [INF] Removing 0 grants
+2019-09-02 09:01:53.269 +02:00 [INF] Removing 0 grants
+2019-09-02 10:01:53.306 +02:00 [INF] Removing 0 grants
+2019-09-02 11:01:53.324 +02:00 [INF] Removing 0 grants
+2019-09-02 12:01:53.334 +02:00 [INF] Removing 0 grants
+2019-09-02 13:01:53.346 +02:00 [INF] Removing 0 grants
+2019-09-02 14:01:53.377 +02:00 [INF] Removing 0 grants
+2019-09-02 15:01:53.411 +02:00 [INF] Removing 0 grants
+2019-09-02 16:01:53.437 +02:00 [INF] Removing 0 grants
+2019-09-02 17:01:53.452 +02:00 [INF] Removing 0 grants
+2019-09-02 18:01:53.490 +02:00 [INF] Removing 0 grants
+2019-09-02 19:01:53.516 +02:00 [INF] Removing 0 grants
+2019-09-02 20:01:53.549 +02:00 [INF] Removing 0 grants
+2019-09-02 21:01:53.570 +02:00 [INF] Removing 0 grants
+2019-09-02 22:01:53.590 +02:00 [INF] Removing 0 grants
+2019-09-02 23:03:15.852 +02:00 [INF] Removing 0 grants
+2019-09-03 08:54:46.134 +02:00 [INF] Removing 0 grants
+2019-09-03 09:54:46.162 +02:00 [INF] Removing 0 grants
+2019-09-03 10:54:46.191 +02:00 [INF] Removing 0 grants
+2019-09-03 11:54:46.225 +02:00 [INF] Removing 0 grants
+2019-09-03 12:54:46.257 +02:00 [INF] Removing 0 grants
+2019-09-03 13:31:37.742 +02:00 [DBG] TaskCanceledException. Exiting.
+2019-09-03 13:31:37.809 +02:00 [DBG] Stopping grant removal
+2019-09-03 17:49:19.289 +02:00 [INF] Starting IdentityServer4 version 2.3.2.0
+2019-09-03 17:49:19.479 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-09-03 17:49:19.480 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-09-03 17:49:19.481 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-09-03 17:49:19.481 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-09-03 17:49:19.481 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-09-03 17:49:19.482 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-09-03 17:49:19.639 +02:00 [DBG] Starting grant removal
+2019-09-03 17:49:46.254 +02:00 [DBG] Login Url: /Account/Login
+2019-09-03 17:49:46.256 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-09-03 17:49:46.258 +02:00 [DBG] Logout Url: /Account/Logout
+2019-09-03 17:49:46.262 +02:00 [DBG] ConsentUrl Url: /consent
+2019-09-03 17:49:46.263 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-09-03 17:49:46.266 +02:00 [DBG] Error Url: /home/error
+2019-09-03 17:49:46.269 +02:00 [DBG] Error Id Parameter: errorId
+2019-09-03 17:49:46.296 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2019-09-03 17:49:46.323 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-09-03 17:49:46.324 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-09-03 17:49:46.337 +02:00 [DBG] Start token request.
+2019-09-03 17:49:46.346 +02:00 [DBG] Start client validation
+2019-09-03 17:49:46.352 +02:00 [DBG] Start parsing Basic Authentication secret
+2019-09-03 17:49:46.356 +02:00 [DBG] Start parsing for secret in post body
+2019-09-03 17:49:46.380 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2019-09-03 17:49:46.381 +02:00 [DBG] Secret id found: ro.time_tracking
+2019-09-03 17:49:47.455 +02:00 [DBG] ro.time_tracking found in database: true
+2019-09-03 17:49:47.472 +02:00 [DBG] client configuration validation for client ro.time_tracking succeeded.
+2019-09-03 17:49:47.484 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-09-03 17:49:47.485 +02:00 [DBG] Client validation success
+2019-09-03 17:49:47.504 +02:00 [INF] {"ClientId":"ro.time_tracking","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLPGGPC4J382:00000001","TimeStamp":"2019-09-03T15:49:47.0000000Z","ProcessId":37504,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2019-09-03 17:49:47.526 +02:00 [DBG] Start token request validation
+2019-09-03 17:49:47.539 +02:00 [DBG] Start resource owner password token request validation
+2019-09-03 17:49:47.591 +02:00 [DBG] Found [] identity scopes in database
+2019-09-03 17:49:47.788 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-03 17:49:47.807 +02:00 [DBG] Found [] identity scopes in database
+2019-09-03 17:49:47.817 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-03 17:49:47.992 +02:00 [INF] Credentials validated for username: alice
+2019-09-03 17:49:47.998 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":"alice","Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPGGPC4J382:00000001","TimeStamp":"2019-09-03T15:49:47.0000000Z","ProcessId":37504,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-03 17:49:48.015 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":null,"Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPGGPC4J382:00000001","TimeStamp":"2019-09-03T15:49:48.0000000Z","ProcessId":37504,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-03 17:49:48.020 +02:00 [DBG] Resource owner password token request validation success.
+2019-09-03 17:49:48.029 +02:00 [INF] Token request validation success
+{"ClientId":"ro.time_tracking","ClientName":null,"GrantType":"password","Scopes":"time_tracking","AuthorizationCode":null,"RefreshToken":null,"UserName":"alice","AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"username":"alice","password":"***REDACTED***","grant_type":"password","scope":"time_tracking","client_id":"ro.time_tracking","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-09-03 17:49:48.060 +02:00 [DBG] Getting claims for access token for client: ro.time_tracking
+2019-09-03 17:49:48.062 +02:00 [DBG] Getting claims for access token for subject: 358e665f-d92f-4203-bc36-293e38b9a624
+2019-09-03 17:49:48.217 +02:00 [INF] {"ClientId":"ro.time_tracking","ClientName":null,"RedirectUri":null,"Endpoint":"Token","SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","Scopes":"time_tracking","GrantType":"password","Tokens":[{"TokenType":"access_token","TokenValue":"****NRVA","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLPGGPC4J382:00000001","TimeStamp":"2019-09-03T15:49:48.0000000Z","ProcessId":37504,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2019-09-03 17:49:48.224 +02:00 [DBG] Token request success.
+2019-09-03 17:50:57.904 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-03 17:50:57.916 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-03 17:50:57.919 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-03 17:50:57.925 +02:00 [DBG] Start discovery request
+2019-09-03 17:50:58.064 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-03 17:50:58.132 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-03 17:50:58.137 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-03 17:50:58.138 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-03 17:50:58.143 +02:00 [DBG] Start key discovery request
+2019-09-03 18:22:26.100 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2019-09-03 18:22:26.115 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-09-03 18:22:26.117 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-09-03 18:22:26.119 +02:00 [DBG] Start token request.
+2019-09-03 18:22:26.120 +02:00 [DBG] Start client validation
+2019-09-03 18:22:26.121 +02:00 [DBG] Start parsing Basic Authentication secret
+2019-09-03 18:22:26.122 +02:00 [DBG] Start parsing for secret in post body
+2019-09-03 18:22:26.125 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2019-09-03 18:22:26.130 +02:00 [DBG] Secret id found: ro.time_tracking
+2019-09-03 18:22:26.139 +02:00 [DBG] ro.time_tracking found in database: true
+2019-09-03 18:22:26.141 +02:00 [DBG] client configuration validation for client ro.time_tracking succeeded.
+2019-09-03 18:22:26.148 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-09-03 18:22:26.151 +02:00 [DBG] Client validation success
+2019-09-03 18:22:26.153 +02:00 [INF] {"ClientId":"ro.time_tracking","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLPGGPC4J385:00000001","TimeStamp":"2019-09-03T16:22:26.0000000Z","ProcessId":37504,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2019-09-03 18:22:26.156 +02:00 [DBG] Start token request validation
+2019-09-03 18:22:26.159 +02:00 [DBG] Start resource owner password token request validation
+2019-09-03 18:22:26.165 +02:00 [DBG] Found [] identity scopes in database
+2019-09-03 18:22:26.171 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-03 18:22:26.176 +02:00 [DBG] Found [] identity scopes in database
+2019-09-03 18:22:26.181 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-03 18:22:26.197 +02:00 [INF] Credentials validated for username: alice
+2019-09-03 18:22:26.203 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":"alice","Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPGGPC4J385:00000001","TimeStamp":"2019-09-03T16:22:26.0000000Z","ProcessId":37504,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-03 18:22:26.218 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":null,"Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPGGPC4J385:00000001","TimeStamp":"2019-09-03T16:22:26.0000000Z","ProcessId":37504,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-03 18:22:26.236 +02:00 [DBG] Resource owner password token request validation success.
+2019-09-03 18:22:26.242 +02:00 [INF] Token request validation success
+{"ClientId":"ro.time_tracking","ClientName":null,"GrantType":"password","Scopes":"time_tracking","AuthorizationCode":null,"RefreshToken":null,"UserName":"alice","AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"username":"alice","password":"***REDACTED***","grant_type":"password","scope":"time_tracking","client_id":"ro.time_tracking","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-09-03 18:22:26.264 +02:00 [DBG] Getting claims for access token for client: ro.time_tracking
+2019-09-03 18:22:26.264 +02:00 [DBG] Getting claims for access token for subject: 358e665f-d92f-4203-bc36-293e38b9a624
+2019-09-03 18:22:26.273 +02:00 [INF] {"ClientId":"ro.time_tracking","ClientName":null,"RedirectUri":null,"Endpoint":"Token","SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","Scopes":"time_tracking","GrantType":"password","Tokens":[{"TokenType":"access_token","TokenValue":"****z8DQ","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLPGGPC4J385:00000001","TimeStamp":"2019-09-03T16:22:26.0000000Z","ProcessId":37504,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2019-09-03 18:22:26.283 +02:00 [DBG] Token request success.
+2019-09-03 18:22:38.514 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-03 18:22:38.528 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-03 18:22:38.530 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-03 18:22:38.532 +02:00 [DBG] Start discovery request
+2019-09-03 18:22:38.539 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-03 18:22:38.590 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-03 18:22:38.597 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-03 18:22:38.599 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-03 18:22:38.604 +02:00 [DBG] Start key discovery request
+2019-09-03 18:49:19.713 +02:00 [INF] Removing 0 grants
+2019-09-03 19:00:38.463 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2019-09-03 19:00:38.489 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-09-03 19:00:38.491 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-09-03 19:00:38.493 +02:00 [DBG] Start token request.
+2019-09-03 19:00:38.494 +02:00 [DBG] Start client validation
+2019-09-03 19:00:38.495 +02:00 [DBG] Start parsing Basic Authentication secret
+2019-09-03 19:00:38.496 +02:00 [DBG] Start parsing for secret in post body
+2019-09-03 19:00:38.497 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2019-09-03 19:00:38.501 +02:00 [DBG] Secret id found: ro.time_tracking
+2019-09-03 19:00:38.508 +02:00 [DBG] ro.time_tracking found in database: true
+2019-09-03 19:00:38.512 +02:00 [DBG] client configuration validation for client ro.time_tracking succeeded.
+2019-09-03 19:00:38.516 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-09-03 19:00:38.520 +02:00 [DBG] Client validation success
+2019-09-03 19:00:38.523 +02:00 [INF] {"ClientId":"ro.time_tracking","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLPGGPC4J388:00000001","TimeStamp":"2019-09-03T17:00:38.0000000Z","ProcessId":37504,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2019-09-03 19:00:38.526 +02:00 [DBG] Start token request validation
+2019-09-03 19:00:38.527 +02:00 [DBG] Start resource owner password token request validation
+2019-09-03 19:00:38.529 +02:00 [DBG] Found [] identity scopes in database
+2019-09-03 19:00:38.540 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-03 19:00:38.547 +02:00 [DBG] Found [] identity scopes in database
+2019-09-03 19:00:38.561 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-03 19:00:38.582 +02:00 [INF] Credentials validated for username: alice
+2019-09-03 19:00:38.591 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":"alice","Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPGGPC4J388:00000001","TimeStamp":"2019-09-03T17:00:38.0000000Z","ProcessId":37504,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-03 19:00:38.596 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":null,"Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPGGPC4J388:00000001","TimeStamp":"2019-09-03T17:00:38.0000000Z","ProcessId":37504,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-03 19:00:38.599 +02:00 [DBG] Resource owner password token request validation success.
+2019-09-03 19:00:38.600 +02:00 [INF] Token request validation success
+{"ClientId":"ro.time_tracking","ClientName":null,"GrantType":"password","Scopes":"time_tracking","AuthorizationCode":null,"RefreshToken":null,"UserName":"alice","AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"username":"alice","password":"***REDACTED***","grant_type":"password","scope":"time_tracking","client_id":"ro.time_tracking","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-09-03 19:00:38.612 +02:00 [DBG] Getting claims for access token for client: ro.time_tracking
+2019-09-03 19:00:38.613 +02:00 [DBG] Getting claims for access token for subject: 358e665f-d92f-4203-bc36-293e38b9a624
+2019-09-03 19:00:38.624 +02:00 [INF] {"ClientId":"ro.time_tracking","ClientName":null,"RedirectUri":null,"Endpoint":"Token","SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","Scopes":"time_tracking","GrantType":"password","Tokens":[{"TokenType":"access_token","TokenValue":"****cLjA","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLPGGPC4J388:00000001","TimeStamp":"2019-09-03T17:00:38.0000000Z","ProcessId":37504,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2019-09-03 19:00:38.628 +02:00 [DBG] Token request success.
+2019-09-03 19:00:58.825 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-03 19:00:58.833 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-03 19:00:58.835 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-03 19:00:58.837 +02:00 [DBG] Start discovery request
+2019-09-03 19:00:58.845 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-03 19:00:58.899 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-03 19:00:58.913 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-03 19:00:58.914 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-03 19:00:58.916 +02:00 [DBG] Start key discovery request
+2019-09-03 19:53:08.114 +02:00 [INF] Removing 0 grants
+2019-09-03 20:53:08.123 +02:00 [INF] Removing 0 grants
+2019-09-03 21:53:08.137 +02:00 [INF] Removing 0 grants
+2019-09-03 22:38:37.445 +02:00 [DBG] TaskCanceledException. Exiting.
+2019-09-03 22:38:37.462 +02:00 [DBG] Stopping grant removal
+2019-09-03 22:44:53.988 +02:00 [INF] Starting IdentityServer4 version 2.3.2.0
+2019-09-03 22:44:54.118 +02:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-09-03 22:44:54.121 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-09-03 22:44:54.124 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-09-03 22:44:54.124 +02:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-09-03 22:44:54.126 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-09-03 22:44:54.131 +02:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2019-09-03 22:44:54.221 +02:00 [DBG] Starting grant removal
+2019-09-03 22:45:01.774 +02:00 [DBG] Login Url: /Account/Login
+2019-09-03 22:45:01.776 +02:00 [DBG] Login Return Url Parameter: ReturnUrl
+2019-09-03 22:45:01.780 +02:00 [DBG] Logout Url: /Account/Logout
+2019-09-03 22:45:01.782 +02:00 [DBG] ConsentUrl Url: /consent
+2019-09-03 22:45:01.787 +02:00 [DBG] Consent Return Url Parameter: returnUrl
+2019-09-03 22:45:01.789 +02:00 [DBG] Error Url: /home/error
+2019-09-03 22:45:01.789 +02:00 [DBG] Error Id Parameter: errorId
+2019-09-03 22:45:01.819 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2019-09-03 22:45:01.854 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-09-03 22:45:01.856 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-09-03 22:45:01.867 +02:00 [DBG] Start token request.
+2019-09-03 22:45:01.874 +02:00 [DBG] Start client validation
+2019-09-03 22:45:01.885 +02:00 [DBG] Start parsing Basic Authentication secret
+2019-09-03 22:45:01.890 +02:00 [DBG] Start parsing for secret in post body
+2019-09-03 22:45:01.917 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2019-09-03 22:45:01.917 +02:00 [DBG] Secret id found: ro.time_tracking
+2019-09-03 22:45:02.933 +02:00 [DBG] ro.time_tracking found in database: true
+2019-09-03 22:45:02.948 +02:00 [DBG] client configuration validation for client ro.time_tracking succeeded.
+2019-09-03 22:45:02.965 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-09-03 22:45:02.966 +02:00 [DBG] Client validation success
+2019-09-03 22:45:02.984 +02:00 [INF] {"ClientId":"ro.time_tracking","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLPGLUBP2V9I:00000001","TimeStamp":"2019-09-03T20:45:02.0000000Z","ProcessId":26044,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2019-09-03 22:45:03.003 +02:00 [DBG] Start token request validation
+2019-09-03 22:45:03.020 +02:00 [DBG] Start resource owner password token request validation
+2019-09-03 22:45:03.068 +02:00 [DBG] Found [] identity scopes in database
+2019-09-03 22:45:03.220 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-03 22:45:03.242 +02:00 [DBG] Found [] identity scopes in database
+2019-09-03 22:45:03.253 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-03 22:45:03.384 +02:00 [INF] Credentials validated for username: alice
+2019-09-03 22:45:03.387 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":"alice","Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPGLUBP2V9I:00000001","TimeStamp":"2019-09-03T20:45:03.0000000Z","ProcessId":26044,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-03 22:45:03.400 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":null,"Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPGLUBP2V9I:00000001","TimeStamp":"2019-09-03T20:45:03.0000000Z","ProcessId":26044,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-03 22:45:03.404 +02:00 [DBG] Resource owner password token request validation success.
+2019-09-03 22:45:03.412 +02:00 [INF] Token request validation success
+{"ClientId":"ro.time_tracking","ClientName":null,"GrantType":"password","Scopes":"time_tracking","AuthorizationCode":null,"RefreshToken":null,"UserName":"alice","AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"username":"alice","password":"***REDACTED***","grant_type":"password","scope":"time_tracking","client_id":"ro.time_tracking","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-09-03 22:45:03.449 +02:00 [DBG] Getting claims for access token for client: ro.time_tracking
+2019-09-03 22:45:03.450 +02:00 [DBG] Getting claims for access token for subject: 358e665f-d92f-4203-bc36-293e38b9a624
+2019-09-03 22:45:03.587 +02:00 [INF] {"ClientId":"ro.time_tracking","ClientName":null,"RedirectUri":null,"Endpoint":"Token","SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","Scopes":"time_tracking","GrantType":"password","Tokens":[{"TokenType":"access_token","TokenValue":"****lWGw","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLPGLUBP2V9I:00000001","TimeStamp":"2019-09-03T20:45:03.0000000Z","ProcessId":26044,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2019-09-03 22:45:03.600 +02:00 [DBG] Token request success.
+2019-09-03 22:45:27.808 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-03 22:45:27.818 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-03 22:45:27.819 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-03 22:45:27.826 +02:00 [DBG] Start discovery request
+2019-09-03 22:45:27.966 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-03 22:45:28.032 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-03 22:45:28.039 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-03 22:45:28.040 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-03 22:45:28.047 +02:00 [DBG] Start key discovery request
+2019-09-03 22:49:09.736 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-03 22:49:09.756 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-03 22:49:09.758 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-03 22:49:09.759 +02:00 [DBG] Start discovery request
+2019-09-03 22:49:09.771 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-03 22:49:09.820 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-03 22:49:09.826 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-03 22:49:09.827 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-03 22:49:09.828 +02:00 [DBG] Start key discovery request
+2019-09-03 22:52:15.070 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-03 22:52:15.079 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-03 22:52:15.081 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-03 22:52:15.087 +02:00 [DBG] Start discovery request
+2019-09-03 22:52:15.093 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-03 22:52:15.138 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-03 22:52:15.145 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-03 22:52:15.147 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-03 22:52:15.148 +02:00 [DBG] Start key discovery request
+2019-09-03 22:55:15.501 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-03 22:55:15.509 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-03 22:55:15.511 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-03 22:55:15.515 +02:00 [DBG] Start discovery request
+2019-09-03 22:55:15.524 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-03 22:55:15.583 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-03 22:55:15.593 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-03 22:55:15.597 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-03 22:55:15.602 +02:00 [DBG] Start key discovery request
+2019-09-03 22:59:07.793 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-03 22:59:07.802 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-03 22:59:07.806 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-03 22:59:07.808 +02:00 [DBG] Start discovery request
+2019-09-03 22:59:07.813 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-03 22:59:07.863 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-03 22:59:07.885 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-03 22:59:07.892 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-03 22:59:07.899 +02:00 [DBG] Start key discovery request
+2019-09-03 23:05:59.310 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-03 23:05:59.318 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-03 23:05:59.319 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-03 23:05:59.321 +02:00 [DBG] Start discovery request
+2019-09-03 23:05:59.333 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-03 23:05:59.395 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-03 23:05:59.402 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-03 23:05:59.403 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-03 23:05:59.405 +02:00 [DBG] Start key discovery request
+2019-09-03 23:10:36.325 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-03 23:10:36.338 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-03 23:10:36.342 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-03 23:10:36.343 +02:00 [DBG] Start discovery request
+2019-09-03 23:10:36.354 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-03 23:10:36.414 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-03 23:10:36.419 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-03 23:10:36.421 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-03 23:10:36.426 +02:00 [DBG] Start key discovery request
+2019-09-03 23:25:25.100 +02:00 [DBG] Request path /connect/token matched to endpoint type Token
+2019-09-03 23:25:25.110 +02:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-09-03 23:25:25.112 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-09-03 23:25:25.117 +02:00 [DBG] Start token request.
+2019-09-03 23:25:25.118 +02:00 [DBG] Start client validation
+2019-09-03 23:25:25.119 +02:00 [DBG] Start parsing Basic Authentication secret
+2019-09-03 23:25:25.121 +02:00 [DBG] Start parsing for secret in post body
+2019-09-03 23:25:25.122 +02:00 [DBG] Parser found secret: PostBodySecretParser
+2019-09-03 23:25:25.123 +02:00 [DBG] Secret id found: ro.time_tracking
+2019-09-03 23:25:25.131 +02:00 [DBG] ro.time_tracking found in database: true
+2019-09-03 23:25:25.133 +02:00 [DBG] client configuration validation for client ro.time_tracking succeeded.
+2019-09-03 23:25:25.135 +02:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-09-03 23:25:25.135 +02:00 [DBG] Client validation success
+2019-09-03 23:25:25.138 +02:00 [INF] {"ClientId":"ro.time_tracking","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLPGLUBP2V9R:00000001","TimeStamp":"2019-09-03T21:25:25.0000000Z","ProcessId":26044,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"ClientAuthenticationSuccessEvent"}
+2019-09-03 23:25:25.143 +02:00 [DBG] Start token request validation
+2019-09-03 23:25:25.143 +02:00 [DBG] Start resource owner password token request validation
+2019-09-03 23:25:25.147 +02:00 [DBG] Found [] identity scopes in database
+2019-09-03 23:25:25.154 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-03 23:25:25.156 +02:00 [DBG] Found [] identity scopes in database
+2019-09-03 23:25:25.164 +02:00 [DBG] Found ["time_tracking"] API scopes in database
+2019-09-03 23:25:25.184 +02:00 [INF] Credentials validated for username: alice
+2019-09-03 23:25:25.188 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":"alice","Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPGLUBP2V9R:00000001","TimeStamp":"2019-09-03T21:25:25.0000000Z","ProcessId":26044,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-03 23:25:25.192 +02:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","DisplayName":null,"Endpoint":"Token","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLPGLUBP2V9R:00000001","TimeStamp":"2019-09-03T21:25:25.0000000Z","ProcessId":26044,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"UserLoginSuccessEvent"}
+2019-09-03 23:25:25.205 +02:00 [DBG] Resource owner password token request validation success.
+2019-09-03 23:25:25.206 +02:00 [INF] Token request validation success
+{"ClientId":"ro.time_tracking","ClientName":null,"GrantType":"password","Scopes":"time_tracking","AuthorizationCode":null,"RefreshToken":null,"UserName":"alice","AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"username":"alice","password":"***REDACTED***","grant_type":"password","scope":"time_tracking","client_id":"ro.time_tracking","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-09-03 23:25:25.210 +02:00 [DBG] Getting claims for access token for client: ro.time_tracking
+2019-09-03 23:25:25.211 +02:00 [DBG] Getting claims for access token for subject: 358e665f-d92f-4203-bc36-293e38b9a624
+2019-09-03 23:25:25.231 +02:00 [INF] {"ClientId":"ro.time_tracking","ClientName":null,"RedirectUri":null,"Endpoint":"Token","SubjectId":"358e665f-d92f-4203-bc36-293e38b9a624","Scopes":"time_tracking","GrantType":"password","Tokens":[{"TokenType":"access_token","TokenValue":"****6oOA","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLPGLUBP2V9R:00000001","TimeStamp":"2019-09-03T21:25:25.0000000Z","ProcessId":26044,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
+2019-09-03 23:25:25.236 +02:00 [DBG] Token request success.
+2019-09-03 23:25:43.035 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-03 23:25:43.041 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-03 23:25:43.043 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-03 23:25:43.045 +02:00 [DBG] Start discovery request
+2019-09-03 23:25:43.052 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-03 23:25:43.103 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-03 23:25:43.109 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-03 23:25:43.110 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-03 23:25:43.115 +02:00 [DBG] Start key discovery request
+2019-09-03 23:30:54.890 +02:00 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-09-03 23:30:54.908 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-09-03 23:30:54.910 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-09-03 23:30:54.912 +02:00 [DBG] Start discovery request
+2019-09-03 23:30:54.920 +02:00 [DBG] Found ["openid","profile","email","api1","time_tracking"] as all scopes in database
+2019-09-03 23:30:54.968 +02:00 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-09-03 23:30:54.978 +02:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-09-03 23:30:54.980 +02:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-09-03 23:30:54.982 +02:00 [DBG] Start key discovery request

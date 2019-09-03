@@ -1,9 +1,7 @@
 ﻿namespace Krola.TimeTracking.Api.Requests.Device
 {
-    public class UpdateDeviceRequest
+    public class DeviceRequest
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
     }
 }
