@@ -1,19 +1,23 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build-env
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-stretch-slim AS base
 WORKDIR /app
+EXPOSE 80
 
-# Copy csproj and restore as distinct layers
-COPY /../../*.sln ./
-WORKDIR /app/Services/Authorization.IdentityServer
-RUN dotnet restore
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
+WORKDIR /src
+COPY ["Services/Authorization.IdentityServer/Authorization.IdentityServer.csproj", "Services/Authorization.IdentityServer/"]
+COPY ["Data/Authorization/Authorization (Data).csproj", "Data/Authorization/"]
+COPY ["Core/Data/Data (Core).csproj", "Core/Data/"]
+COPY ["Domain/Shared/Shared (Domain).csproj", "Domain/Shared/"]
+COPY ["Domain/Authorization/Authorization (Domain).csproj", "Domain/Authorization/"]
+RUN dotnet restore "Services/Authorization.IdentityServer/Authorization.IdentityServer.csproj"
+COPY . .
+WORKDIR "/src/Services/Authorization.IdentityServer"
+RUN dotnet build "Authorization.IdentityServer.csproj" -c Release -o /app/build
 
-# Copy everything else and build
+FROM build AS publish
+RUN dotnet publish "Authorization.IdentityServer.csproj" -c Release -o /app/publish
+
+FROM base AS final
 WORKDIR /app
-COPY ../../* ./
-WORKDIR /app/Services/Authorization.IdentityServer
-RUN dotnet publish -c Release -o out
-
-# Build runtime image
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
-WORKDIR /app/Services/Authorization.IdentityServer
-COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "aspnetapp.dll"]
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Krola.Authorization.IdentityServer.dll"]
