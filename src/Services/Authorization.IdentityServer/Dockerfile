@@ -4,7 +4,6 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
 WORKDIR /src
-RUN ls -a
 COPY ["Services/Authorization.IdentityServer/Authorization.IdentityServer.csproj", "Services/Authorization.IdentityServer/"]
 COPY ["Data/Authorization/Authorization (Data).csproj", "Data/Authorization/"]
 COPY ["Core/Data/Data (Core).csproj", "Core/Data/"]
