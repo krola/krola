@@ -15,7 +15,7 @@ WORKDIR "/src/Services/Authorization.IdentityServer"
 RUN dotnet build "Authorization.IdentityServer.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Authorization.IdentityServer.csproj" -c Release -o /app/publish
+RUN dotnet publish "Authorization.IdentityServer.csproj" -r linux-arm -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
