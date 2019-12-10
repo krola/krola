@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-stretch-slim AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.0-stretch AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster-arm32v7 AS build
 WORKDIR /src
 COPY ["Services/Authorization.IdentityServer/Authorization.IdentityServer.csproj", "Services/Authorization.IdentityServer/"]
 COPY ["Data/Authorization/Authorization (Data).csproj", "Data/Authorization/"]
