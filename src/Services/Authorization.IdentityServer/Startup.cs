@@ -66,14 +66,14 @@ namespace Krola.Authorization.IdentityServer
                 })
                 .AddAspNetIdentity<User>();
 
-            if (Environment.IsDevelopment())
-            {
-                builder.AddDeveloperSigningCredential();
-            }
-            else
-            {
-                throw new Exception("need to configure key material");
-            }
+            //if (Environment.IsDevelopment())
+            //{
+            //    builder.AddDeveloperSigningCredential();
+            //}
+            //else
+            //{
+            //    throw new Exception("need to configure key material");
+            //}
 
             services.AddAuthentication();
                 //.AddGoogle(options =>
