@@ -9,8 +9,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Reflection;
+using System.Security.Cryptography;
 
 namespace Krola.Authorization.IdentityServer
 {
@@ -51,6 +53,7 @@ namespace Krola.Authorization.IdentityServer
                 options.Events.RaiseFailureEvents = true;
                 options.Events.RaiseSuccessEvents = true;
             })
+                .AddDeveloperSigningCredential()
                 // this adds the config data from DB (clients, resources)
                 .AddConfigurationStore(options =>
                 {
