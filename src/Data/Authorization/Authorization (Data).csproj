@@ -10,12 +10,16 @@
     <PackageReference Include="IdentityServer4.EntityFramework" Version="2.3.2" />
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Data\Data (Core).csproj" />
     <ProjectReference Include="..\..\Domain\Authorization\Authorization (Domain).csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

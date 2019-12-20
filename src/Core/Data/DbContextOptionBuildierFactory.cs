@@ -33,7 +33,11 @@ namespace Krola.Core.Data
 
             Console.WriteLine("DesignTimeDbContextFactory.Create(string): Connection string: {0}", connectionString);
 
-            contextOptionsBuilder.UseSqlite(connectionString, m => m.MigrationsAssembly(migrationsAssembly.FullName));
+            contextOptionsBuilder.UseNpgsql(connectionString, m =>
+            {
+                m.MigrationsAssembly(migrationsAssembly.FullName);
+                m.SetPostgresVersion(new Version(9, 6));
+        });
         }
 
         public static void SetupContextOptionsBuilder<TContext>(DbContextOptionsBuilder contextOptionsBuilder) where TContext : DbContext

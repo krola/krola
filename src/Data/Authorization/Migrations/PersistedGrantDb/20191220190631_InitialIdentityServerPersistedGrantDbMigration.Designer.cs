@@ -5,43 +5,52 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Krola.Data.Authorization.Migrations.PersistedGrantDb
 {
     [DbContext(typeof(PersistedGrantDbContext))]
-    [Migration("20190901103327_InitialIdentityServerPersistedGrantDbMigration")]
+    [Migration("20191220190631_InitialIdentityServerPersistedGrantDbMigration")]
     partial class InitialIdentityServerPersistedGrantDbMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
+                .HasAnnotation("ProductVersion", "3.0.1")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>
                 {
                     b.Property<string>("UserCode")
-                        .ValueGeneratedOnAdd()
+                        .HasColumnType("character varying(200)")
                         .HasMaxLength(200);
 
                     b.Property<string>("ClientId")
                         .IsRequired()
+                        .HasColumnType("character varying(200)")
                         .HasMaxLength(200);
 
-                    b.Property<DateTime>("CreationTime");
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Data")
                         .IsRequired()
+                        .HasColumnType("character varying(50000)")
                         .HasMaxLength(50000);
 
                     b.Property<string>("DeviceCode")
                         .IsRequired()
+                        .HasColumnType("character varying(200)")
                         .HasMaxLength(200);
 
                     b.Property<DateTime?>("Expiration")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("SubjectId")
+                        .HasColumnType("character varying(200)")
                         .HasMaxLength(200);
 
                     b.HasKey("UserCode");
@@ -49,34 +58,45 @@ namespace Krola.Data.Authorization.Migrations.PersistedGrantDb
                     b.HasIndex("DeviceCode")
                         .IsUnique();
 
+                    b.HasIndex("Expiration");
+
                     b.ToTable("DeviceCodes");
                 });
 
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.PersistedGrant", b =>
                 {
                     b.Property<string>("Key")
+                        .HasColumnType("character varying(200)")
                         .HasMaxLength(200);
 
                     b.Property<string>("ClientId")
                         .IsRequired()
+                        .HasColumnType("character varying(200)")
                         .HasMaxLength(200);
 
-                    b.Property<DateTime>("CreationTime");
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Data")
                         .IsRequired()
+                        .HasColumnType("character varying(50000)")
                         .HasMaxLength(50000);
 
-                    b.Property<DateTime?>("Expiration");
+                    b.Property<DateTime?>("Expiration")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("SubjectId")
+                        .HasColumnType("character varying(200)")
                         .HasMaxLength(200);
 
                     b.Property<string>("Type")
                         .IsRequired()
+                        .HasColumnType("character varying(50)")
                         .HasMaxLength(50);
 
                     b.HasKey("Key");
+
+                    b.HasIndex("Expiration");
 
                     b.HasIndex("SubjectId", "ClientId", "Type");
 
