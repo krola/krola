@@ -27,7 +27,7 @@ namespace Krola.Authorization.IdentityServer
                 using (var scope = host.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {
                     SeedData.EnsureSeedData(scope.ServiceProvider);
-                    return;
+                    //return;
                 }
             //}
 
