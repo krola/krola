@@ -8,7 +8,8 @@ namespace Krola.Core.Data
     public class DbContextOptionsBuilderFactory
     {
         public const string ConnectionStringName = "DefaultConnection";
-        public static void SetupContextOptionsBuilder(DbContextOptionsBuilder contextOptionsBuilder, Assembly migrationsAssembly)
+        public static void SetupContextOptionsBuilder(DbContextOptionsBuilder contextOptionsBuilder, Assembly migrationsAssembly,
+            string connectionStringName = ConnectionStringName)
         {
             var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             //var basePath = AppContext.BaseDirectory;
@@ -23,7 +24,7 @@ namespace Krola.Core.Data
                 .AddEnvironmentVariables();
 
             var config = builder.Build();
-            var connectionString = config.GetConnectionString(ConnectionStringName);
+            var connectionString = config.GetConnectionString(connectionStringName);
 
             if (string.IsNullOrWhiteSpace(connectionString))
             {

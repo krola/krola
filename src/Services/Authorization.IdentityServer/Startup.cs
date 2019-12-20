@@ -57,12 +57,12 @@ namespace Krola.Authorization.IdentityServer
                 // this adds the config data from DB (clients, resources)
                 .AddConfigurationStore(options =>
                 {
-                    options.ConfigureDbContext = b => DbContextOptionsBuilderFactory.SetupContextOptionsBuilder(b, migrationsAssembly);
+                    options.ConfigureDbContext = b => DbContextOptionsBuilderFactory.SetupContextOptionsBuilder(b, migrationsAssembly, "ConfigurationStore");
                 })
                 // this adds the operational data from DB (codes, tokens, consents)
                 .AddOperationalStore(options =>
                 {
-                    options.ConfigureDbContext = b => DbContextOptionsBuilderFactory.SetupContextOptionsBuilder(b, migrationsAssembly);
+                    options.ConfigureDbContext = b => DbContextOptionsBuilderFactory.SetupContextOptionsBuilder(b, migrationsAssembly, "OperationalStore");
 
                     // this enables automatic token cleanup. this is optional.
                     options.EnableTokenCleanup = true;
