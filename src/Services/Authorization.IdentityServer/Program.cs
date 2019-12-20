@@ -17,19 +17,19 @@ namespace Krola.Authorization.IdentityServer
     {
         public static void Main(string[] args)
         {
-            var seed = args.Any(x => x == "/seed");
-            if (seed) args = args.Except(new[] { "/seed" }).ToArray();
+            //var seed = args.Any(x => x == "/seed");
+            //if (seed) args = args.Except(new[] { "/seed" }).ToArray();
 
             var host = CreateWebHostBuilder(args).Build();
 
-            if (seed)
-            {
+            //if (seed)
+            //{
                 using (var scope = host.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {
                     SeedData.EnsureSeedData(scope.ServiceProvider);
                     return;
                 }
-            }
+            //}
 
             host
                 .Run();
