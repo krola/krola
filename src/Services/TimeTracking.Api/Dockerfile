@@ -10,7 +10,7 @@ COPY ["Core/Data/Data (Core).csproj", "Core/Data/"]
 COPY ["Core/Infrastructure (Core)/Infrastructure (Core).csproj", "Core/Infrastructure (Core)/"]
 COPY ["Domain/Shared/Shared (Domain).csproj", "Domain/Shared/"]
 COPY ["Domain/TimeTracking/TimeTracking (Domain).csproj", "Domain/TimeTracking/"]
-RUN dotnet restore "Services/Authorization.IdentityServer/Authorization.IdentityServer.csproj"
+RUN dotnet restore "Services/TimeTracking.Api/TimeTracking.Api.csproj"
 COPY . .
 WORKDIR "/src/Services/TimeTracking.Api"
 RUN dotnet build "TimeTracking.Api.csproj" -r linux-arm -c Release -o /app/build
