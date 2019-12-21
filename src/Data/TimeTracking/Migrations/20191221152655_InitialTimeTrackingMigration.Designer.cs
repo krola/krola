@@ -3,15 +3,17 @@ using System;
 using Krola.Data.TimeTracking;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Krola.Data.TimeTracking.Migrations
 {
     [DbContext(typeof(TimeTrackingDbContext))]
-    partial class TimeTrackingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191221152655_InitialTimeTrackingMigration")]
+    partial class InitialTimeTrackingMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

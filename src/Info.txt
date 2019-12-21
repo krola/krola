@@ -1,4 +1,6 @@
 dotnet ef migrations add InitialIdentityServerConfigurationDbMigration -c ConfigurationDbContext -o Migrations/ConfigurationDb --startup-project ../../Services/Authorization.IdentityServer --verbose
 dotnet ef migrations add InitialIdentityServerPersistedGrantDbMigration -c PersistedGrantDbContext -o Migrations/PersistedGrantDb --startup-project ../../Services/Authorization.IdentityServer --verbose
+dotnet ef migrations add InitialTimeTrackingMigration -c TimeTrackingDbContext -o Migrations --startup-project ../../Services/TimeTracking.Api --verbose
 
 dotnet ef database update -c ConfigurationDbContext --startup-project ../../Services/Authorization.IdentityServer --verbose
+dotnet ef database update -c TimeTrackingDbContext --startup-project ../../Services/TimeTracking.Api --verbose
