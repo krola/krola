@@ -7,7 +7,7 @@ WORKDIR /src
 COPY ["Services/TimeTracking.Api/TimeTracking.Api.csproj", "Services/TimeTracking.Api/"]
 COPY ["Data/TimeTracking/TimeTracking (Data).csproj", "Data/TimeTracking/"]
 COPY ["Core/Data/Data (Core).csproj", "Core/Data/"]
-COPY ["Core/Data/Infrastructure (Core).csproj", "Core/Infrastructure/"]
+COPY ["Core/Infrastructure (Core)/Infrastructure (Core).csproj", "Core/Infrastructure (Core)/"]
 COPY ["Domain/Shared/Shared (Domain).csproj", "Domain/Shared/"]
 COPY ["Domain/TimeTracking/TimeTracking (Domain).csproj", "Domain/TimeTracking/"]
 RUN dotnet restore "Services/Authorization.IdentityServer/Authorization.IdentityServer.csproj"
