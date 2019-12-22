@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace Krola.TimeTracking.Api
         public static IConfiguration Configuration { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-       // public IServiceProvider ConfigureServices(IServiceCollection services)
+        // public IServiceProvider ConfigureServices(IServiceCollection services)
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TimeTrackingDbContext>(options => DbContextOptionsBuilderFactory.Create<TimeTrackingDbContext>());
@@ -38,20 +39,19 @@ namespace Krola.TimeTracking.Api
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "TimeTracking API", Version = "v1" });
-                // Swagger 2.+ support
-                c.AddSecurityDefinition("Bearer", new ApiKeyScheme
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TimeTracking API", Version = "v1" });
+                var securitySchema = new OpenApiSecurityScheme
                 {
-                    In = "header",
+                    In = ParameterLocation.Header,
                     Description = "Please insert JWT with Bearer into field",
                     Name = "Authorization",
-                    Type = "apiKey"
-                });
+                    Type = SecuritySchemeType.ApiKey
+                };
+                var securityRequirement = new OpenApiSecurityRequirement();
+                securityRequirement.Add(securitySchema, new[] { "Bearer" });
 
-                c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>>
-                {
-                    { "Bearer", new string[] { } }
-                });
+                c.AddSecurityDefinition("Bearer", securitySchema);
+                c.AddSecurityRequirement(securityRequirement);
             });
             services.AddSingleton(typeof(TimeTrackingDbContextFactory));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
