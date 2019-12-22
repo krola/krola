@@ -40,18 +40,33 @@ namespace Krola.TimeTracking.Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TimeTracking API", Version = "v1" });
-                var securitySchema = new OpenApiSecurityScheme
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     In = ParameterLocation.Header,
                     Description = "Please insert JWT with Bearer into field",
                     Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey
-                };
-                var securityRequirement = new OpenApiSecurityRequirement();
-                securityRequirement.Add(securitySchema, new[] { "Bearer" });
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
 
-                c.AddSecurityDefinition("Bearer", securitySchema);
-                c.AddSecurityRequirement(securityRequirement);
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                {
+                     {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            },
+                            Scheme = "oauth2",
+                            Name = "Bearer",
+                            In = ParameterLocation.Header,
+
+                        },
+                        new List<string>()
+                     }
+                });
             });
             services.AddSingleton(typeof(TimeTrackingDbContextFactory));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
