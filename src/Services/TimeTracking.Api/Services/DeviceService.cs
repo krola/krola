@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Krola.Core.Data.Interfaces;
 using Krola.Core.Infrastructure.Interfaces;
 using Krola.Domain.TimeTracking;
-using Krola.TimeTracking.Api.Dto;
+using Krola.TimeTracking.Api.Dto.Device;
 using Krola.TimeTracking.Api.Interfaces;
 using Microsoft.EntityFrameworkCore;
 

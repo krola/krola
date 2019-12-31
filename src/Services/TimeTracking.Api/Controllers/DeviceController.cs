@@ -34,18 +34,18 @@ namespace Krola.TimeTracking.Api.Controllers
             return new JsonResult(newDevice);
         }
 
-        [HttpPut("{id}")]
-        public async Task<OkResult> Update(int id, [FromBody]DeviceRequest deviceRequest)
+        [HttpPut("{deviceId}")]
+        public async Task<OkResult> Update(int deviceId, [FromBody]DeviceRequest deviceRequest)
         {
-            await _deviceService.Update(id, deviceRequest.Name);
+            await _deviceService.Update(deviceId, deviceRequest.Name);
 
             return Ok();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<OkResult> Delete(int id)
+        [HttpDelete("{deviceId}")]
+        public async Task<OkResult> Delete(int deviceId)
         {
-            await _deviceService.Delete(id);
+            await _deviceService.Delete(deviceId);
 
             return Ok();
         }

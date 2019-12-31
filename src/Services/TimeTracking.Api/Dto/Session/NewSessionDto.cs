@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Krola.TimeTracking.Api.Dto
+namespace Krola.TimeTracking.Api.Dto.Session
 {
-    public class DeviceDto
+    public class NewSessionDto
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public Guid Key { get; set; }
     }
 }

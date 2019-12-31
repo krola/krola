@@ -1,4 +1,4 @@
-﻿using Krola.TimeTracking.Api.Dto;
+﻿using Krola.TimeTracking.Api.Dto.Device;
 using System;
 using System.Collections.Generic;
 using System.Linq;
