@@ -18,6 +18,11 @@ steps:
 - task: NuGetToolInstaller@1
 
 - task: CmdLine@2
+  displayName: 'Install Entity Framework CLI'
+  inputs:
+    script: '"C:\Program Files\dotnet\dotnet.exe" tool install --global dotnet-ef'
+
+- task: CmdLine@2
   displayName: 'EF Migration script'
   inputs:
     script: '"C:\Program Files\dotnet\dotnet.exe" ef database update -c TimeTrackingDbContext  -o %BUILD_ARTIFACTSTAGINGDIRECTORY%\migrate.sql --startup-project ../../Services/TimeTracking.Api --verbose'
