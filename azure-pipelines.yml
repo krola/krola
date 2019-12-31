@@ -23,6 +23,12 @@ steps:
     command: 'build'
     projects: 'src/Services/TimeTracking.Api'
 
+- task: CmdLine@2
+  displayName: 'EF Migration script'
+  inputs:
+    script: 'dotnet ef database update -c TimeTrackingDbContext  -o %BUILD_ARTIFACTSTAGINGDIRECTORY%\migrate.sql --startup-project ../../Services/TimeTracking.Api --verbose'
+    workingDirectory: 'src/Data/TimeTracking'
+
 - task: DotNetCoreCLI@2
   displayName: 'Publish'
   inputs:
