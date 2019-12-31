@@ -20,7 +20,7 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: 'Database restore'
   inputs:
-    command: 'ef database update -c TimeTrackingDbContext --startup-project ../../Services/TimeTracking.Api --verbose'
+    command: 'dotnet ef database update -c TimeTrackingDbContext --startup-project ../../Services/TimeTracking.Api --verbose'
     projects: 'src/Services/TimeTracking.Api'
 
 - task: DotNetCoreCLI@2
