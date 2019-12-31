@@ -29,7 +29,7 @@ steps:
     command: 'publish'
     arguments: '--output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
-    projects: 'src/Services/TimeTracking.Api'
+    workingDirectory: 'src/Services/TimeTracking.Api'
 
 - task: PublishBuildArtifacts@1
   inputs:
