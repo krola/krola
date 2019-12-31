@@ -25,7 +25,7 @@ steps:
 - task: CmdLine@2
   displayName: 'EF Migration script'
   inputs:
-    script: '"C:\Program Files\dotnet\dotnet.exe" ef database update -c TimeTrackingDbContext  -o %BUILD_ARTIFACTSTAGINGDIRECTORY%\migrate.sql --startup-project ../../Services/TimeTracking.Api --verbose'
+    script: '"C:\Program Files\dotnet\dotnet.exe" ef migrations script -c TimeTrackingDbContext  -o %BUILD_ARTIFACTSTAGINGDIRECTORY%\migrate.sql --startup-project ../../Services/TimeTracking.Api --verbose'
     workingDirectory: 'src/Data/TimeTracking'
 
 - task: DotNetCoreCLI@2
