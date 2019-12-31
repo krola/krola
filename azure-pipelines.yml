@@ -18,6 +18,13 @@ steps:
 - task: NuGetToolInstaller@1
 
 - task: DotNetCoreCLI@2
+  displayName: 'Database restore'
+  inputs:
+    command: 'ef database update -c TimeTrackingDbContext --startup-project ../../Services/TimeTracking.Api --verbose'
+    projects: 'src/Services/TimeTracking.Api'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build'
   inputs:
     command: 'build'
     projects: 'src/Services/TimeTracking.Api'
