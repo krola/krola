@@ -27,9 +27,10 @@ steps:
   displayName: 'Publish'
   inputs:
     command: 'publish'
+    publishWebProjects: false
     arguments: '--output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
-    workingDirectory: 'src/Services/TimeTracking.Api'
+    projects: 'src/Services/TimeTracking.Api'
 
 - task: PublishBuildArtifacts@1
   inputs:
