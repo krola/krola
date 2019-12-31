@@ -22,8 +22,3 @@ steps:
   inputs:
     command: 'build'
     projects: 'src/Services/TimeTracking.Api'
-
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
