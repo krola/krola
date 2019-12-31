@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Krola.Data.TimeTracking.Migrations
 {
-    public partial class Init : Migration
+    public partial class InitialTimeTrackingMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,10 +12,11 @@ namespace Krola.Data.TimeTracking.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Created = table.Column<DateTime>(nullable: false),
                     Modified = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    UserId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,7 +28,7 @@ namespace Krola.Data.TimeTracking.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Created = table.Column<DateTime>(nullable: false),
                     Modified = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
@@ -51,11 +52,13 @@ namespace Krola.Data.TimeTracking.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Created = table.Column<DateTime>(nullable: false),
                     Modified = table.Column<DateTime>(nullable: false),
-                    Star = table.Column<DateTime>(nullable: false),
+                    Start = table.Column<DateTime>(nullable: false),
                     End = table.Column<DateTime>(nullable: true),
+                    Heartbeat = table.Column<DateTime>(nullable: true),
+                    Key = table.Column<Guid>(nullable: false),
                     DeviceId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -74,7 +77,7 @@ namespace Krola.Data.TimeTracking.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Created = table.Column<DateTime>(nullable: false),
                     Modified = table.Column<DateTime>(nullable: false),
                     DateFrom = table.Column<DateTime>(nullable: false),
