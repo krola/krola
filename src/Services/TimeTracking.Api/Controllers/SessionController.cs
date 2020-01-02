@@ -1,4 +1,5 @@
 ﻿using Krola.TimeTracking.Api.Interfaces;
+using Krola.TimeTracking.Api.Requests.Session;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -25,17 +26,17 @@ namespace Krola.TimeTracking.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<OkResult> End([FromBody]int sessionId, [FromBody]Guid key)
+        public async Task<OkResult> End([FromBody]EndSessionRequest endSessionRequest)
         {
-            await _sessionService.End(sessionId, key);
+            await _sessionService.End(endSessionRequest.SessionId, endSessionRequest.Key);
 
             return Ok();
         }
 
         [HttpPost]
-        public async Task<OkResult> Heartbeat([FromBody]int sessionId, [FromBody]Guid key)
+        public async Task<OkResult> Heartbeat([FromBody]EndSessionRequest endSessionRequest)
         {
-            await _sessionService.Heartbeat(sessionId, key);
+            await _sessionService.Heartbeat(endSessionRequest.SessionId, endSessionRequest.Key);
 
             return Ok();
         }
