@@ -1,5 +1,6 @@
 ﻿using Krola.TimeTracking.Api.Interfaces;
 using Krola.TimeTracking.Api.Requests.Session;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 namespace Krola.TimeTracking.Api.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize()]
     [ApiController]
     public class SessionController : ControllerBase
     {
@@ -17,15 +19,15 @@ namespace Krola.TimeTracking.Api.Controllers
             _sessionService = sessionService;
         }
 
-        [HttpPost]
-        public async Task<JsonResult> Start([FromBody]int deviceId)
+        [HttpPost(nameof(Start))]
+        public async Task<JsonResult> Start([FromBody]StartSessionRequest startSessionRequest)
         {
-            var newSession = await _sessionService.Start(deviceId);
+            var newSession = await _sessionService.Start(startSessionRequest.DeviceId);
 
             return new JsonResult(newSession);
         }
 
-        [HttpPost]
+        [HttpPost(nameof(End))]
         public async Task<OkResult> End([FromBody]EndSessionRequest endSessionRequest)
         {
             await _sessionService.End(endSessionRequest.SessionId, endSessionRequest.Key);
@@ -33,7 +35,7 @@ namespace Krola.TimeTracking.Api.Controllers
             return Ok();
         }
 
-        [HttpPost]
+        [HttpPost(nameof(Heartbeat))]
         public async Task<OkResult> Heartbeat([FromBody]EndSessionRequest endSessionRequest)
         {
             await _sessionService.Heartbeat(endSessionRequest.SessionId, endSessionRequest.Key);

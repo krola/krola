@@ -18,6 +18,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Krola.TimeTracking.Api
 {
@@ -67,6 +68,8 @@ namespace Krola.TimeTracking.Api
                         new List<string>()
                      }
                 });
+
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
             services.AddSingleton(typeof(TimeTrackingDbContextFactory));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
