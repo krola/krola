@@ -2160,3 +2160,53 @@ CREATE TABLE "ApiResources" (
     "NonEditable" boolean NOT NULL,
     CONSTRAINT "PK_ApiResources" PRIMARY KEY ("Id")
 );
+2020-01-02 21:25:14.471 +01:00 [INF] Starting IdentityServer4 version 3.0.0.0
+2020-01-02 21:25:14.508 +01:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2020-01-02 21:25:14.509 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2020-01-02 21:25:14.515 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2020-01-02 21:25:14.519 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2020-01-02 21:25:14.520 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2020-01-02 21:25:14.521 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2020-01-02 21:25:29.384 +01:00 [INF] Starting IdentityServer4 version 3.0.0.0
+2020-01-02 21:25:29.424 +01:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2020-01-02 21:25:29.428 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2020-01-02 21:25:29.432 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2020-01-02 21:25:29.433 +01:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2020-01-02 21:25:29.435 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2020-01-02 21:25:29.441 +01:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
+2020-01-02 21:25:55.344 +01:00 [DBG] Login Url: /Account/Login
+2020-01-02 21:25:55.346 +01:00 [DBG] Login Return Url Parameter: ReturnUrl
+2020-01-02 21:25:55.347 +01:00 [DBG] Logout Url: /Account/Logout
+2020-01-02 21:25:55.348 +01:00 [DBG] ConsentUrl Url: /consent
+2020-01-02 21:25:55.352 +01:00 [DBG] Consent Return Url Parameter: returnUrl
+2020-01-02 21:25:55.352 +01:00 [DBG] Error Url: /home/error
+2020-01-02 21:25:55.353 +01:00 [DBG] Error Id Parameter: errorId
+2020-01-02 21:25:55.366 +01:00 [DBG] Request path /connect/token matched to endpoint type Token
+2020-01-02 21:25:55.383 +01:00 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2020-01-02 21:25:55.383 +01:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2020-01-02 21:25:55.387 +01:00 [DBG] Start token request.
+2020-01-02 21:25:55.391 +01:00 [DBG] Start client validation
+2020-01-02 21:25:55.394 +01:00 [DBG] Start parsing Basic Authentication secret
+2020-01-02 21:25:55.395 +01:00 [DBG] Start parsing for secret in post body
+2020-01-02 21:25:55.403 +01:00 [DBG] Parser found secret: PostBodySecretParser
+2020-01-02 21:25:55.404 +01:00 [DBG] Secret id found: ro.time_tracking
+2020-01-02 21:25:55.882 +01:00 [DBG] ro.time_tracking found in database: true
+2020-01-02 21:25:55.892 +01:00 [DBG] client configuration validation for client ro.time_tracking succeeded.
+2020-01-02 21:25:55.900 +01:00 [DBG] Secret validator success: HashedSharedSecretValidator
+2020-01-02 21:25:55.901 +01:00 [DBG] Client validation success
+2020-01-02 21:25:55.913 +01:00 [INF] {"ClientId":"ro.time_tracking","AuthenticationMethod":"SharedSecret","Category":"Authentication","Name":"Client Authentication Success","EventType":"Success","Id":1010,"Message":null,"ActivityId":"0HLSFO7S49KB7:00000001","TimeStamp":"2020-01-02T20:25:55.0000000Z","ProcessId":20952,"LocalIpAddress":"127.0.0.1:5000","RemoteIpAddress":"127.0.0.1","$type":"ClientAuthenticationSuccessEvent"}
+2020-01-02 21:25:55.925 +01:00 [DBG] Start token request validation
+2020-01-02 21:25:55.930 +01:00 [DBG] Start resource owner password token request validation
+2020-01-02 21:25:56.016 +01:00 [DBG] Found [] identity scopes in database
+2020-01-02 21:25:56.477 +01:00 [DBG] Found ["time_tracking"] API scopes in database
+2020-01-02 21:25:56.518 +01:00 [DBG] Found [] identity scopes in database
+2020-01-02 21:25:56.554 +01:00 [DBG] Found ["time_tracking"] API scopes in database
+2020-01-02 21:25:56.614 +01:00 [INF] Credentials validated for username: alice
+2020-01-02 21:25:56.618 +01:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"39c1a8d5-649f-4536-bf93-07b8cb915f2e","DisplayName":"alice","Endpoint":"Token","ClientId":"ro.time_tracking","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLSFO7S49KB7:00000001","TimeStamp":"2020-01-02T20:25:56.0000000Z","ProcessId":20952,"LocalIpAddress":"127.0.0.1:5000","RemoteIpAddress":"127.0.0.1","$type":"UserLoginSuccessEvent"}
+2020-01-02 21:25:56.632 +01:00 [INF] {"Username":"alice","Provider":null,"ProviderUserId":null,"SubjectId":"39c1a8d5-649f-4536-bf93-07b8cb915f2e","DisplayName":null,"Endpoint":"Token","ClientId":"ro.time_tracking","Category":"Authentication","Name":"User Login Success","EventType":"Success","Id":1000,"Message":null,"ActivityId":"0HLSFO7S49KB7:00000001","TimeStamp":"2020-01-02T20:25:56.0000000Z","ProcessId":20952,"LocalIpAddress":"127.0.0.1:5000","RemoteIpAddress":"127.0.0.1","$type":"UserLoginSuccessEvent"}
+2020-01-02 21:25:56.644 +01:00 [DBG] Resource owner password token request validation success.
+2020-01-02 21:25:56.649 +01:00 [INF] Token request validation success, {"ClientId":"ro.time_tracking","ClientName":null,"GrantType":"password","Scopes":"time_tracking","AuthorizationCode":null,"RefreshToken":null,"UserName":"alice","AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"username":"alice","password":"***REDACTED***","grant_type":"password","scope":"time_tracking","client_id":"ro.time_tracking","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2020-01-02 21:25:56.669 +01:00 [DBG] Getting claims for access token for client: ro.time_tracking
+2020-01-02 21:25:56.670 +01:00 [DBG] Getting claims for access token for subject: 39c1a8d5-649f-4536-bf93-07b8cb915f2e
+2020-01-02 21:25:56.957 +01:00 [INF] {"ClientId":"ro.time_tracking","ClientName":null,"RedirectUri":null,"Endpoint":"Token","SubjectId":"39c1a8d5-649f-4536-bf93-07b8cb915f2e","Scopes":"time_tracking","GrantType":"password","Tokens":[{"TokenType":"access_token","TokenValue":"****01Gw","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLSFO7S49KB7:00000001","TimeStamp":"2020-01-02T20:25:56.0000000Z","ProcessId":20952,"LocalIpAddress":"127.0.0.1:5000","RemoteIpAddress":"127.0.0.1","$type":"TokenIssuedSuccessEvent"}
+2020-01-02 21:25:56.967 +01:00 [DBG] Token request success.
