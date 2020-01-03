@@ -12,7 +12,6 @@ namespace Krola.Core.Data
             string connectionStringName = ConnectionStringName)
         {
             var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-            //var basePath = AppContext.BaseDirectory;
             var basePath = Environment.CurrentDirectory;
 
             Console.WriteLine("DesignTimeDbContextFactory.Create(string): Base path string: {0}", basePath);
@@ -38,12 +37,6 @@ namespace Krola.Core.Data
             {
                 m.MigrationsAssembly(migrationsAssembly.FullName);
             });
-
-            //contextOptionsBuilder.UseNpgsql(connectionString, m =>
-            //{
-            //    m.MigrationsAssembly(migrationsAssembly.FullName);
-            //    m.SetPostgresVersion(new Version(9, 6));
-            //});
         }
 
         public static void SetupContextOptionsBuilder<TContext>(DbContextOptionsBuilder contextOptionsBuilder) where TContext : DbContext
