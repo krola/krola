@@ -43,6 +43,7 @@ steps:
   displayName: 'Build'
   inputs:
     command: 'build'
+    arguments: '--runtime linux-x64'
     projects: 'src/Services/Authorization.IdentityServer'
 
 - task: DotNetCoreCLI@2
