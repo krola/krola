@@ -6,6 +6,7 @@ using Krola.Core.Infrastructure;
 using Krola.Core.Infrastructure.Interfaces;
 using Krola.Core.Infrastructure.Services;
 using Krola.Data.TimeTracking;
+using Krola.TimeTracking.Api.Errors;
 using Krola.TimeTracking.Api.Interfaces;
 using Krola.TimeTracking.Api.Services;
 using Microsoft.AspNetCore.Builder;
@@ -102,6 +103,8 @@ namespace Krola.TimeTracking.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.ConfigureExceptionHandler();
             app.UseAuthentication();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
