@@ -82,7 +82,7 @@ namespace Krola.TimeTracking.Api
             services.AddAuthentication("Bearer")
                 .AddIdentityServerAuthentication(option =>
                 {
-                    option.Authority = "http://192.168.1.104:5000";
+                    option.Authority = "http://krola-authorization.azurewebsites.net";
                     option.RequireHttpsMetadata = false;
                     option.ApiSecret = "time_tracking";
                     option.ApiName = "time_tracking";
